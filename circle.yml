@@ -1,0 +1,33 @@
+machine:
+  java:
+    version: oraclejdk8
+  environment:
+    TERM: dumb
+
+dependencies:
+  override:
+    - ./gradlew --parallel resolveConfigurations
+
+test:
+  override:
+    - ./gradlew build --console=plain --stacktrace
+
+# Reach out to DevTools for access to publish. For CircleCI info, see: https://circleci.com/docs/configuration#deployment
+# For more information about publishing, see: https://rtfm.palantir.build/docs/devtools/master/basic-project-building.html#publishing-artifacts
+# ---
+# deployment:
+#   snapshot:
+#     branch: develop
+#     # owner: <github org>
+#     commands:
+#       - ./gradlew -is --continue publish
+#
+#   release:
+#     tag: /[0-9]+(\.[0-9]+)+(-[a-zA-Z]+[0-9]*)*/
+#     # owner: <github org>
+#     commands:
+#       - ./gradlew -is --continue publish
+
+notify:
+  webhooks:
+    - url: https://parana.palantir.build/hook
