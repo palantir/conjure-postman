@@ -1,1 +1,4 @@
 rootProject.name = 'conjure-postman'
+
+include 'conjure-postman'
+include 'conjure-postman-core'

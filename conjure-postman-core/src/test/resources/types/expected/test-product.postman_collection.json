@@ -1,0 +1,493 @@
+{
+  "auth" : {
+    "type" : "bearer",
+    "bearer" : [ {
+      "key" : "token",
+      "value" : "{{AUTH_TOKEN}}",
+      "type" : "string"
+    } ]
+  },
+  "event" : [ {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "script" : {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "type" : "application/json",
+      "exec" : [ "pm.test(\"Request was successful\", function () {", "    pm.response.to.not.be.error;", "});" ]
+    },
+    "disabled" : false,
+    "listen" : "test"
+  }, {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "script" : {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "type" : "application/json",
+      "exec" : [ "pm.test(\"Response is valid json\", function () {", "    // assert that the response has a valid JSON body", "    pm.response.to.be.json;", "});" ]
+    },
+    "disabled" : false,
+    "listen" : "test"
+  } ],
+  "info" : {
+    "description" : "# Test Product 0.0.0\n\nThis is a testing product.",
+    "name" : "Test Product",
+    "_postman_id" : "00000000-0000-0000-0000-000000000000",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version" : "0.0.0"
+  },
+  "items" : [ {
+    "description" : null,
+    "name" : "ImportService",
+    "items" : [ {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "testEndpoint",
+      "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}",
+      "request" : {
+        "body" : {
+          "raw" : "{\n  \"string\" : \"{{STRING}}\"\n}",
+          "mode" : "raw"
+        },
+        "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "POST",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/testEndpoint",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "testEndpoint" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    } ],
+    "event" : [ ],
+    "variable" : [ ]
+  }, {
+    "description" : "A Markdown description of the service.\n",
+    "name" : "TestService",
+    "items" : [ {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "createDataset",
+      "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}",
+      "request" : {
+        "body" : {
+          "raw" : "{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"path\" : \"{{STRING}}\"\n}",
+          "mode" : "raw"
+        },
+        "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        }, {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Test-Header",
+          "value" : null
+        } ],
+        "method" : "POST",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "getBranches",
+      "description" : "\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        }, {
+          "description" : "Optionally use this field to send the server a complement.\n",
+          "disabled" : false,
+          "key" : "Special-Message",
+          "value" : null
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/branches",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branches" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : "A valid dataset resource identifier.\n"
+          } ],
+          "query" : [ {
+            "key" : "pageSize",
+            "value" : "",
+            "disabled" : false
+          } ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "getBranchesDeprecated (Deprecated)",
+      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/branchesDeprecated",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branchesDeprecated" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : "A valid dataset resource identifier.\n"
+          } ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "getDataset",
+      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : null
+          } ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "getFileSystems",
+      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** {{Type{value: MapWrapper{value: MapType{keyType: Type{value: PrimitiveWrapper{value: STRING}}, valueType: Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** {{Type{value: MapWrapper{value: MapType{keyType: Type{value: PrimitiveWrapper{value: STRING}}, valueType: Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/fileSystems",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "fileSystems" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "getRawData",
+      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BINARY}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BINARY}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/raw",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "raw" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : null
+          } ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "maybeGetRawData",
+      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: BINARY}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: BINARY}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/raw-maybe",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "raw-maybe" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : null
+          } ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "resolveBranch",
+      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/branches/:branch:.+/resolve",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branches", ":branch:.+", "resolve" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : null
+          }, {
+            "key" : "branch",
+            "description" : null
+          } ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "testBoolean",
+      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BOOLEAN}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BOOLEAN}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/boolean",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "boolean" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "testDouble",
+      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: DOUBLE}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: DOUBLE}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/double",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "double" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "testInteger",
+      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/integer",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "integer" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "testParam",
+      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/testParam",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "testParam" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ {
+            "key" : "datasetRid",
+            "description" : null
+          } ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "testQueryParams",
+      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+      "request" : {
+        "body" : null,
+        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "GET",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/test-query-params",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "test-query-params" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ {
+            "key" : "something",
+            "value" : "",
+            "disabled" : false
+          }, {
+            "key" : "implicit",
+            "value" : "",
+            "disabled" : false
+          } ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    }, {
+      "id" : "00000000-0000-0000-0000-000000000000",
+      "name" : "uploadRawData",
+      "description" : null,
+      "request" : {
+        "body" : {
+          "mode" : "file"
+        },
+        "description" : null,
+        "header" : [ {
+          "description" : null,
+          "disabled" : false,
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "method" : "POST",
+        "url" : {
+          "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/upload-raw",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", "upload-raw" ],
+          "host" : "{{HOSTNAME}}",
+          "port" : "{{PORT}}",
+          "variable" : [ ],
+          "query" : [ ]
+        }
+      },
+      "event" : [ ],
+      "variable" : [ ]
+    } ],
+    "event" : [ ],
+    "variable" : [ ]
+  } ],
+  "variable" : [ {
+    "description" : null,
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "key" : "PORT",
+    "name" : "PORT",
+    "type" : "number",
+    "value" : 443
+  }, {
+    "description" : null,
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "key" : "TEST_PRODUCT_API_BASE",
+    "name" : "TEST_PRODUCT_API_BASE",
+    "type" : "string",
+    "value" : "service-endpoint/api"
+  } ]
+}
