@@ -16,6 +16,8 @@
 
 package com.palantir.conjure.postman;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.palantir.conjure.defs.Conjure;
 import com.palantir.conjure.postman.writer.DefaultPostmanCollectionFileWriter;
 import com.palantir.conjure.postman.writer.PostmanCollectionFileWriter;
@@ -25,8 +27,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.assertj.core.util.Strings;
 import org.junit.runner.RunWith;
 
 @ConjureSubfolderRunner.ParentFolder("src/test/resources")
@@ -41,18 +45,38 @@ public final class ConjurePostmanGeneratorTest {
                 .apiPath("service-endpoint/api")
                 .build()
     );
+    private final InMemoryPostmanPythonFileWriter writer = new InMemoryPostmanPythonFileWriter();
 
     @ConjureSubfolderRunner.Test
     public void assertThatFilesRenderAsExpected(Path folder) throws IOException {
         UuidProvider.setUseRandom(false);
         Path expected = folder.resolve("expected");
-        PostmanCollectionFileWriter writer = new DefaultPostmanCollectionFileWriter(expected);
 
         ConjureDefinition definition = getInputDefinitions(folder);
         maybeResetExpectedDirectory(expected, definition);
 
         writer.write(generator.generate(definition));
+        assertFoldersEqual(expected);
     }
+
+    private void assertFoldersEqual(Path expected) throws IOException {
+        Set<Path> generatedButNotExpected = writer.getCollections().keySet();
+        long count = 0;
+        try (Stream<Path> walk = Files.walk(expected)) {
+            for (Path path : walk.collect(Collectors.toList())) {
+                if (!path.toFile().isFile()) {
+                    continue;
+                }
+                String expectedContent = Strings.join(Files.readAllLines(path)).with("\n");
+                assertThat(writer.getCollections().get(expected.relativize(path))).isEqualTo(expectedContent);
+                generatedButNotExpected.remove(expected.relativize(path));
+                count += 1;
+            }
+        }
+        assertThat(generatedButNotExpected).isEmpty();
+        System.out.println(count + " files checked");
+    }
+
 
     private void maybeResetExpectedDirectory(Path expected, ConjureDefinition definition) throws IOException {
         if (Boolean.valueOf(System.getProperty("recreate", "false"))
