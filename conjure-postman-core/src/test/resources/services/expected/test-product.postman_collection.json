@@ -1,11 +1,11 @@
 {
   "auth" : {
-    "type" : "bearer",
     "bearer" : [ {
       "key" : "token",
       "value" : "{{AUTH_TOKEN}}",
       "type" : "string"
-    } ]
+    } ],
+    "type" : "bearer"
   },
   "event" : [ {
     "id" : "00000000-0000-0000-0000-000000000000",

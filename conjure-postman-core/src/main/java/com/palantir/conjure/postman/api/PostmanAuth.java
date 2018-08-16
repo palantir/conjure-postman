@@ -5,6 +5,7 @@
 package com.palantir.conjure.postman.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.collect.ImmutableList;
@@ -15,6 +16,7 @@ import java.util.Optional;
 import org.immutables.value.Value;
 
 @Value.Immutable
+@JsonPropertyOrder(alphabetic = true)
 @JsonDeserialize(as = ImmutablePostmanAuth.class)
 @JsonSerialize(as = ImmutablePostmanAuth.class)
 public interface PostmanAuth {
