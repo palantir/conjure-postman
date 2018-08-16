@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.Map;
 
-public final class InMemoryPostmanPythonFileWriter implements PostmanCollectionFileWriter {
+public final class InMemoryPostmanCollectionFileWriter implements PostmanCollectionFileWriter {
     private static final ObjectMapper mapper = new ObjectMapper()
             .registerModule(new Jdk8Module())
             .enable(SerializationFeature.INDENT_OUTPUT);

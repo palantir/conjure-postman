@@ -45,7 +45,7 @@ public final class ConjurePostmanGeneratorTest {
                 .apiPath("service-endpoint/api")
                 .build()
     );
-    private final InMemoryPostmanPythonFileWriter writer = new InMemoryPostmanPythonFileWriter();
+    private final InMemoryPostmanCollectionFileWriter writer = new InMemoryPostmanCollectionFileWriter();
 
     @ConjureSubfolderRunner.Test
     public void assertThatFilesRenderAsExpected(Path folder) throws IOException {
