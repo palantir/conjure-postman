@@ -30,7 +30,7 @@ public final class InMemoryPostmanPythonFileWriter implements PostmanCollectionF
     @Override
     public void write(PostmanCollection collection) {
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                mapper.writeValue(baos, collection);
+            mapper.writeValue(baos, collection);
             byte[] bytes = baos.toByteArray();
 
             collections.put(PostmanCollectionFileWriter.getPath(collection), new String(bytes, StandardCharsets.UTF_8));

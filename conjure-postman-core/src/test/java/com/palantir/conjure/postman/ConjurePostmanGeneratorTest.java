@@ -89,8 +89,8 @@ public final class ConjurePostmanGeneratorTest {
                 walk.forEach(path -> path.toFile().delete());
             }
             Files.createDirectories(expected);
-            PostmanCollectionFileWriter writer = new DefaultPostmanCollectionFileWriter(expected);
-            writer.write(generator.generate(definition));
+            PostmanCollectionFileWriter defaultWriter = new DefaultPostmanCollectionFileWriter(expected);
+            defaultWriter.write(generator.generate(definition));
         }
     }
 
