@@ -37,14 +37,17 @@ jobs:
 
     - deploy:
         command: |
-          # publishing snapshots to bintray does not work, so we only publish from tag builds (not develop)
-          if [[ "${CIRCLE_TAG}" =~ [0-9]+(\.[0-9]+)+(-[a-zA-Z]+[0-9]*)* ]]; then
-            ./gradlew --stacktrace --continue publish
-          else
-            ./gradlew --parallel --continue publishToMavenLocal
-            mkdir -p ~/poms
-            find . -name 'pom-default.xml' -exec cp --parents {} ~/poms \;
-          fi
+          ./gradlew --stacktrace --continue publish
+          git status
+#        command: |
+#          # publishing snapshots to bintray does not work, so we only publish from tag builds (not develop)
+#          if [[ "${CIRCLE_TAG}" =~ [0-9]+(\.[0-9]+)+(-[a-zA-Z]+[0-9]*)* ]]; then
+#            ./gradlew --stacktrace --continue publish
+#          else
+#            ./gradlew --parallel --continue publishToMavenLocal
+#            mkdir -p ~/poms
+#            find . -name 'pom-default.xml' -exec cp --parents {} ~/poms \;
+#          fi
     - store_artifacts:
         path: ~/poms
 
