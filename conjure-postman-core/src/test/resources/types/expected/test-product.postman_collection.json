@@ -39,13 +39,13 @@
     "items" : [ {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testEndpoint",
-      "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}",
+      "description" : "\n\n**Returns:** BackingFileSystem",
       "request" : {
         "body" : {
           "raw" : "{\n  \"string\" : \"{{STRING}}\"\n}",
           "mode" : "raw"
         },
-        "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}",
+        "description" : "\n\n**Returns:** BackingFileSystem",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -73,13 +73,13 @@
     "items" : [ {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "createDataset",
-      "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}",
+      "description" : "\n\n**Returns:** Dataset",
       "request" : {
         "body" : {
           "raw" : "{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"path\" : \"{{STRING}}\"\n}",
           "mode" : "raw"
         },
-        "description" : "\n\n**Returns:** {{Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}",
+        "description" : "\n\n**Returns:** Dataset",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -106,10 +106,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getBranches",
-      "description" : "\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "description" : "\n\n**Returns:** Set<STRING>",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "description" : "\n\n**Returns:** Set<STRING>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -143,10 +143,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getBranchesDeprecated (Deprecated)",
-      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>",
       "request" : {
         "body" : null,
-        "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** {{Type{value: SetWrapper{value: SetType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -171,10 +171,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getDataset",
-      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}}}}",
+      "description" : "\n\n**Returns:** Optional<Dataset>",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: ReferenceWrapper{value: TypeName{name: Dataset, package: com.palantir.product.datasets}}}}}}}}",
+        "description" : "\n\n**Returns:** Optional<Dataset>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -199,10 +199,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getFileSystems",
-      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** {{Type{value: MapWrapper{value: MapType{keyType: Type{value: PrimitiveWrapper{value: STRING}}, valueType: Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}}}}",
+      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>",
       "request" : {
         "body" : null,
-        "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** {{Type{value: MapWrapper{value: MapType{keyType: Type{value: PrimitiveWrapper{value: STRING}}, valueType: Type{value: ReferenceWrapper{value: TypeName{name: BackingFileSystem, package: com.palantir.product.datasets}}}}}}}}",
+        "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -224,10 +224,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getRawData",
-      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BINARY}}}}",
+      "description" : "\n\n**Returns:** BINARY",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BINARY}}}}",
+        "description" : "\n\n**Returns:** BINARY",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -252,10 +252,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "maybeGetRawData",
-      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: BINARY}}}}}}}",
+      "description" : "\n\n**Returns:** Optional<BINARY>",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: BINARY}}}}}}}",
+        "description" : "\n\n**Returns:** Optional<BINARY>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -280,10 +280,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "resolveBranch",
-      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "description" : "\n\n**Returns:** Optional<STRING>",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "description" : "\n\n**Returns:** Optional<STRING>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -311,10 +311,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testBoolean",
-      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BOOLEAN}}}}",
+      "description" : "\n\n**Returns:** BOOLEAN",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: BOOLEAN}}}}",
+        "description" : "\n\n**Returns:** BOOLEAN",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -336,10 +336,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testDouble",
-      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: DOUBLE}}}}",
+      "description" : "\n\n**Returns:** DOUBLE",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: DOUBLE}}}}",
+        "description" : "\n\n**Returns:** DOUBLE",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -361,10 +361,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testInteger",
-      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+      "description" : "\n\n**Returns:** INTEGER",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+        "description" : "\n\n**Returns:** INTEGER",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -386,10 +386,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testParam",
-      "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+      "description" : "\n\n**Returns:** Optional<STRING>",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: OptionalWrapper{value: OptionalType{itemType: Type{value: PrimitiveWrapper{value: STRING}}}}}}}",
+        "description" : "\n\n**Returns:** Optional<STRING>",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -414,10 +414,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testQueryParams",
-      "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+      "description" : "\n\n**Returns:** INTEGER",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** {{Type{value: PrimitiveWrapper{value: INTEGER}}}}",
+        "description" : "\n\n**Returns:** INTEGER",
         "header" : [ {
           "description" : null,
           "disabled" : false,

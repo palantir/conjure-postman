@@ -22,6 +22,7 @@ import com.palantir.conjure.postman.api.PostmanRequest;
 import com.palantir.conjure.postman.api.PostmanUrl;
 import com.palantir.conjure.postman.visitor.BodyParameterTypeVisitor;
 import com.palantir.conjure.postman.visitor.DefaultParameterTypeVisitor;
+import com.palantir.conjure.postman.visitor.TypeNameFormatterVisitor;
 import com.palantir.conjure.spec.Documentation;
 import com.palantir.conjure.spec.EndpointDefinition;
 import com.palantir.conjure.spec.HeaderParameterType;
@@ -51,13 +52,13 @@ public final class PostmanRequestGenerator {
                 .url(getUrl(apiBaseVariable, endpointDefinition))
                 .method(getMethod(endpointDefinition))
                 .header(getHeaders(endpointDefinition))
-                .description(getDocs(endpointDefinition))
+                .description(getDocs(endpointDefinition, types))
                 .body(getBody(endpointDefinition, types))
                 .build();
 
         return PostmanRequest.builder()
                 .name(getName(endpointDefinition))
-                .description(getDocs(endpointDefinition))
+                .description(getDocs(endpointDefinition, types))
                 .request(request)
                 .build();
     }
@@ -69,13 +70,14 @@ public final class PostmanRequestGenerator {
         return name.toString();
     }
 
-    private static Optional<String> getDocs(EndpointDefinition endpointDefinition) {
+    private static Optional<String> getDocs(EndpointDefinition endpointDefinition,
+            List<TypeDefinition> types) {
         StringBuilder docs = new StringBuilder();
         endpointDefinition.getDocs().ifPresent(documentation -> docs.append(documentation.get()));
         endpointDefinition.getDeprecated().ifPresent(documentation ->
                 docs.append(String.format("\n\n**Deprecation:** %s", documentation.get())));
         endpointDefinition.getReturns().ifPresent(type ->
-                docs.append(String.format("\n\n**Returns:** {{%s}}", type)));
+                docs.append(String.format("\n\n**Returns:** %s", type.accept(new TypeNameFormatterVisitor(types)))));
         return docs.length() > 0 ? Optional.of(docs.toString()) : Optional.empty();
     }
 
