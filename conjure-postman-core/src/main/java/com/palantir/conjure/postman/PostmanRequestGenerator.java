@@ -16,12 +16,14 @@
 
 package com.palantir.conjure.postman;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.collect.ImmutableList;
 import com.google.common.net.HttpHeaders;
 import com.palantir.conjure.postman.api.PostmanRequest;
 import com.palantir.conjure.postman.api.PostmanUrl;
 import com.palantir.conjure.postman.visitor.BodyParameterTypeVisitor;
 import com.palantir.conjure.postman.visitor.DefaultParameterTypeVisitor;
+import com.palantir.conjure.postman.visitor.TemplateTypeVisitor;
 import com.palantir.conjure.postman.visitor.TypeNameFormatterVisitor;
 import com.palantir.conjure.spec.Documentation;
 import com.palantir.conjure.spec.EndpointDefinition;
@@ -72,12 +74,22 @@ public final class PostmanRequestGenerator {
 
     private static Optional<String> getDocs(EndpointDefinition endpointDefinition,
             List<TypeDefinition> types) {
+
         StringBuilder docs = new StringBuilder();
         endpointDefinition.getDocs().ifPresent(documentation -> docs.append(documentation.get()));
         endpointDefinition.getDeprecated().ifPresent(documentation ->
                 docs.append(String.format("\n\n**Deprecation:** %s", documentation.get())));
-        endpointDefinition.getReturns().ifPresent(type ->
-                docs.append(String.format("\n\n**Returns:** %s", type.accept(new TypeNameFormatterVisitor(types)))));
+        endpointDefinition.getReturns().ifPresent(type -> {
+            docs.append(String.format("\n\n**Returns:** %s", type.accept(new TypeNameFormatterVisitor(types))));
+            try {
+                docs.append(String.format("\n\n```json\n%s\n```",
+                        TemplateTypeVisitor.getObjectMapper()
+                                .writeValueAsString(type.accept(new TemplateTypeVisitor(types)))));
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         return docs.length() > 0 ? Optional.of(docs.toString()) : Optional.empty();
     }
 

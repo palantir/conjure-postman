@@ -39,13 +39,13 @@
     "items" : [ {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "createDataset",
-      "description" : "\n\n**Returns:** Dataset",
+      "description" : "\n\n**Returns:** Dataset\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
       "request" : {
         "body" : {
           "raw" : "{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"path\" : \"{{STRING}}\"\n}",
           "mode" : "raw"
         },
-        "description" : "\n\n**Returns:** Dataset",
+        "description" : "\n\n**Returns:** Dataset\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -72,10 +72,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getBranches",
-      "description" : "\n\n**Returns:** Set<STRING>",
+      "description" : "\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** Set<STRING>",
+        "description" : "\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -109,10 +109,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getBranchesDeprecated (Deprecated)",
-      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>",
+      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
       "request" : {
         "body" : null,
-        "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>",
+        "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -137,10 +137,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getDataset",
-      "description" : "\n\n**Returns:** Optional<Dataset>",
+      "description" : "\n\n**Returns:** Optional<Dataset>\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** Optional<Dataset>",
+        "description" : "\n\n**Returns:** Optional<Dataset>\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -165,10 +165,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getFileSystems",
-      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>",
+      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>\n\n```json\n{\n  \"{{STRING}}\" : {\n    \"fileSystemId\" : \"{{STRING}}\",\n    \"baseUri\" : \"{{STRING}}\",\n    \"configuration\" : {\n      \"{{STRING}}\" : \"{{STRING}}\"\n    }\n  }\n}\n```",
       "request" : {
         "body" : null,
-        "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>",
+        "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>\n\n```json\n{\n  \"{{STRING}}\" : {\n    \"fileSystemId\" : \"{{STRING}}\",\n    \"baseUri\" : \"{{STRING}}\",\n    \"configuration\" : {\n      \"{{STRING}}\" : \"{{STRING}}\"\n    }\n  }\n}\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -190,10 +190,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getRawData",
-      "description" : "\n\n**Returns:** BINARY",
+      "description" : "\n\n**Returns:** BINARY\n\n```json\n\"{{BINARY}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** BINARY",
+        "description" : "\n\n**Returns:** BINARY\n\n```json\n\"{{BINARY}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -218,10 +218,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "maybeGetRawData",
-      "description" : "\n\n**Returns:** Optional<BINARY>",
+      "description" : "\n\n**Returns:** Optional<BINARY>\n\n```json\n\"{{BINARY}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** Optional<BINARY>",
+        "description" : "\n\n**Returns:** Optional<BINARY>\n\n```json\n\"{{BINARY}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -246,10 +246,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "resolveBranch",
-      "description" : "\n\n**Returns:** Optional<STRING>",
+      "description" : "\n\n**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** Optional<STRING>",
+        "description" : "\n\n**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -277,10 +277,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testBoolean",
-      "description" : "\n\n**Returns:** BOOLEAN",
+      "description" : "\n\n**Returns:** BOOLEAN\n\n```json\ntrue\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** BOOLEAN",
+        "description" : "\n\n**Returns:** BOOLEAN\n\n```json\ntrue\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -302,10 +302,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testDouble",
-      "description" : "\n\n**Returns:** DOUBLE",
+      "description" : "\n\n**Returns:** DOUBLE\n\n```json\n0\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** DOUBLE",
+        "description" : "\n\n**Returns:** DOUBLE\n\n```json\n0\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -327,10 +327,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testInteger",
-      "description" : "\n\n**Returns:** INTEGER",
+      "description" : "\n\n**Returns:** INTEGER\n\n```json\n0\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** INTEGER",
+        "description" : "\n\n**Returns:** INTEGER\n\n```json\n0\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -352,10 +352,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testParam",
-      "description" : "\n\n**Returns:** Optional<STRING>",
+      "description" : "\n\n**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** Optional<STRING>",
+        "description" : "\n\n**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -380,10 +380,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testQueryParams",
-      "description" : "\n\n**Returns:** INTEGER",
+      "description" : "\n\n**Returns:** INTEGER\n\n```json\n0\n```",
       "request" : {
         "body" : null,
-        "description" : "\n\n**Returns:** INTEGER",
+        "description" : "\n\n**Returns:** INTEGER\n\n```json\n0\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
