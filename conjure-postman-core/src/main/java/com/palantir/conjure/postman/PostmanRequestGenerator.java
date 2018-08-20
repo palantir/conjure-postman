@@ -18,6 +18,7 @@ package com.palantir.conjure.postman;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.common.net.HttpHeaders;
 import com.palantir.conjure.postman.api.PostmanRequest;
 import com.palantir.conjure.postman.api.PostmanUrl;
@@ -31,11 +32,13 @@ import com.palantir.conjure.spec.HeaderParameterType;
 import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.visitor.ParameterTypeVisitor;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import javax.swing.text.html.Option;
 import javax.ws.rs.core.MediaType;
 
 public final class PostmanRequestGenerator {
@@ -75,14 +78,14 @@ public final class PostmanRequestGenerator {
     private static Optional<String> getDocs(EndpointDefinition endpointDefinition,
             List<TypeDefinition> types) {
 
-        StringBuilder docs = new StringBuilder();
-        endpointDefinition.getDocs().ifPresent(documentation -> docs.append(documentation.get()));
+        List<String> docs = Lists.newArrayList();
+        endpointDefinition.getDocs().ifPresent(documentation -> docs.add(documentation.get()));
         endpointDefinition.getDeprecated().ifPresent(documentation ->
-                docs.append(String.format("\n\n**Deprecation:** %s", documentation.get())));
+                docs.add(String.format("**Deprecation:** %s", documentation.get())));
         endpointDefinition.getReturns().ifPresent(type -> {
-            docs.append(String.format("\n\n**Returns:** %s", type.accept(new TypeNameFormatterVisitor(types))));
+            docs.add(String.format("**Returns:** %s", type.accept(new TypeNameFormatterVisitor(types))));
             try {
-                docs.append(String.format("\n\n```json\n%s\n```",
+                docs.add(String.format("```json\n%s\n```",
                         TemplateTypeVisitor.getObjectMapper()
                                 .writeValueAsString(type.accept(new TemplateTypeVisitor(types)))));
             } catch (JsonProcessingException e) {
@@ -90,7 +93,7 @@ public final class PostmanRequestGenerator {
             }
         });
 
-        return docs.length() > 0 ? Optional.of(docs.toString()) : Optional.empty();
+        return docs.size() > 0 ? Optional.of(String.join("\n\n", docs)) : Optional.empty();
     }
 
     private static PostmanRequest.Request.Method getMethod(EndpointDefinition endpointDefinition) {
