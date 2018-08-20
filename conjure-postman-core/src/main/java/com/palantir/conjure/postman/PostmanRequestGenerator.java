@@ -32,13 +32,11 @@ import com.palantir.conjure.spec.HeaderParameterType;
 import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.visitor.ParameterTypeVisitor;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import javax.swing.text.html.Option;
 import javax.ws.rs.core.MediaType;
 
 public final class PostmanRequestGenerator {
