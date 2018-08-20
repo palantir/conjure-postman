@@ -73,22 +73,17 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
 
     @Override
     public JsonNode visitPrimitive(PrimitiveType value) {
-        switch (value.get()) {
-            case INTEGER:
-            case DOUBLE:
-            case SAFELONG:
-                return new IntNode(0);
-            case BOOLEAN:
-                return BooleanNode.TRUE;
-            default:
-                return new TextNode(String.format("{{%s}}", value.get().name()));
-
-        }
+        return new TextNode(String.format("{{%s}}", value.get().name()));
     }
 
     @Override
     public JsonNode visitOptional(OptionalType value) {
-        return value.getItemType().accept(this);
+        JsonNode wrapped = value.getItemType().accept(this);
+        if (wrapped instanceof TextNode) {
+            return new TextNode(String.format("{{ Optional<%s> }}",
+                    wrapped.toString().replaceAll("[\"{}]", "")));
+        }
+        return wrapped;
     }
 
     @Override

@@ -252,10 +252,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "maybeGetRawData",
-      "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{BINARY}}\"\n```",
+      "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{ Optional<BINARY> }}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{BINARY}}\"\n```",
+        "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{ Optional<BINARY> }}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -280,10 +280,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "resolveBranch",
-      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
+      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
+        "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -311,10 +311,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testBoolean",
-      "description" : "**Returns:** BOOLEAN\n\n```json\ntrue\n```",
+      "description" : "**Returns:** BOOLEAN\n\n```json\n\"{{BOOLEAN}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** BOOLEAN\n\n```json\ntrue\n```",
+        "description" : "**Returns:** BOOLEAN\n\n```json\n\"{{BOOLEAN}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -336,10 +336,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testDouble",
-      "description" : "**Returns:** DOUBLE\n\n```json\n0\n```",
+      "description" : "**Returns:** DOUBLE\n\n```json\n\"{{DOUBLE}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** DOUBLE\n\n```json\n0\n```",
+        "description" : "**Returns:** DOUBLE\n\n```json\n\"{{DOUBLE}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -361,10 +361,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testInteger",
-      "description" : "**Returns:** INTEGER\n\n```json\n0\n```",
+      "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** INTEGER\n\n```json\n0\n```",
+        "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -386,10 +386,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testParam",
-      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
+      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{STRING}}\"\n```",
+        "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,
@@ -414,10 +414,10 @@
     }, {
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testQueryParams",
-      "description" : "**Returns:** INTEGER\n\n```json\n0\n```",
+      "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
       "request" : {
         "body" : null,
-        "description" : "**Returns:** INTEGER\n\n```json\n0\n```",
+        "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
         "header" : [ {
           "description" : null,
           "disabled" : false,

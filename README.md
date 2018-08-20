@@ -45,6 +45,25 @@ Overrides and non-default options should be set in an [Environment](https://www.
 ### Body Templates
 When a request has a conjure bean as a body argument a template will be provided based on the Bean definition.
 
+#### Primitives
+Primitives are templated in _quoted_ double-curly braces (e.g. `"{{STRING}}"`, `"{{INTEGER}}"` or `"{{BINARY}}"`).
+When filling in the template non-string types should not include quotes.
+
+#### Alias Types
+Alias type templates are the name of the alias followed by the referenced type in parenthesis. (e.g. `"{{ Name(STRING) }}"`) 
+
+#### Lists/Sets/Maps
+Collection type templates are an example of a single element.
+
+#### Enumerations
+Enumeration templates are a pipe separated list of all possible values for the enum.
+
+#### Union Types
+Union types are will provide a pipe separated list of possible types and an example template for each type in a map named `oneOf`.
+One type should be chosen and the `oneOf` block should be replaced with the corresponding template.
+
+#### Recursive Types
+Recursive references in templates will be the type name in quoted double curly braces.
 
 ### Tests
 Postman [Tests](https://www.getpostman.com/docs/v6/postman/scripts/test_scripts) will be configured to expect a successful request and a valid JSON body where appropriate.
