@@ -5,7 +5,7 @@ _Generate [Postman](https://www.getpostman.com/) [Collections](https://www.getpo
 
 ## Usage
 
-conjure-postman is an executable which conforms to [RFC 002](https://github.com/palantir/conjure/blob/develop/docs/rfc/002-contract-for-conjure-generators.md).
+conjure-postman is an executable which conforms to [RFC 002](https://github.com/palantir/conjure/blob/master/docs/rfc/002-contract-for-conjure-generators.md).
 
     usage: conjure-postman generate <target> <output> [--apiPath <apiPath>]
            [--productDescription <description>] --productName <name>
