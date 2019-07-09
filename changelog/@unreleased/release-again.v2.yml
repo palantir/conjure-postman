@@ -1,0 +1,5 @@
+type: fix
+fix:
+  description: Releasing again as previous release failed
+  links:
+    - https://github.com/palantir/conjure-postman/pull/27
