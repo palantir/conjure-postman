@@ -16,7 +16,7 @@
 
 package com.palantir.conjure.postman.cli;
 
-import com.google.common.base.Preconditions;
+import com.palantir.logsafe.Preconditions;
 import java.io.File;
 import java.util.Optional;
 import org.apache.commons.cli.Option;

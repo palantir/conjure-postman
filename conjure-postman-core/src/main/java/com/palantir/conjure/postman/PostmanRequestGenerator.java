@@ -32,6 +32,7 @@ import com.palantir.conjure.spec.HeaderParameterType;
 import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.visitor.ParameterTypeVisitor;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -69,14 +70,14 @@ public final class PostmanRequestGenerator {
     private static String getName(EndpointDefinition endpointDefinition) {
         StringBuilder name = new StringBuilder();
         name.append(endpointDefinition.getEndpointName().get());
-        endpointDefinition.getDeprecated().ifPresent(documentation -> name.append(" (Deprecated)"));
+        endpointDefinition.getDeprecated().ifPresent(_documentation -> name.append(" (Deprecated)"));
         return name.toString();
     }
 
     private static Optional<String> getDocs(EndpointDefinition endpointDefinition,
             List<TypeDefinition> types) {
 
-        List<String> docs = Lists.newArrayList();
+        List<String> docs = new ArrayList<>();
         endpointDefinition.getDocs().ifPresent(documentation -> docs.add(documentation.get()));
         endpointDefinition.getDeprecated().ifPresent(documentation ->
                 docs.add(String.format("**Deprecation:** %s", documentation.get())));

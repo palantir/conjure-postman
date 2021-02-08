@@ -45,7 +45,7 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
     }
 
     @Override
-    public Optional<PostmanRequest.Body> visitBody(BodyParameterType value) {
+    public Optional<PostmanRequest.Body> visitBody(BodyParameterType _value) {
         TemplateTypeVisitor visitor = new TemplateTypeVisitor(types);
         Type type = argumentDefinition.getType();
 
@@ -91,7 +91,7 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
             }
 
             @Override
-            public Optional<PostmanRequest.Body> visitUnknown(String unknownType) {
+            public Optional<PostmanRequest.Body> visitUnknown(String _unknownType) {
                 return Optional.empty();
             }
         });

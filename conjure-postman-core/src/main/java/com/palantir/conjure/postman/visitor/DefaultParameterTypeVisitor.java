@@ -32,31 +32,31 @@ public abstract class DefaultParameterTypeVisitor<T> implements ParameterType.Vi
 
     @SuppressWarnings("checkstyle:designforextension")
     @Override
-    public T visitBody(BodyParameterType value) {
+    public T visitBody(BodyParameterType _value) {
         return defaultValue;
     }
 
     @SuppressWarnings("checkstyle:designforextension")
     @Override
-    public T visitHeader(HeaderParameterType value) {
+    public T visitHeader(HeaderParameterType _value) {
         return defaultValue;
     }
 
     @SuppressWarnings("checkstyle:designforextension")
     @Override
-    public T visitPath(PathParameterType value) {
+    public T visitPath(PathParameterType _value) {
         return defaultValue;
     }
 
     @SuppressWarnings("checkstyle:designforextension")
     @Override
-    public T visitQuery(QueryParameterType value) {
+    public T visitQuery(QueryParameterType _value) {
         return defaultValue;
     }
 
     @SuppressWarnings("checkstyle:designforextension")
     @Override
-    public T visitUnknown(String unknownType) {
+    public T visitUnknown(String _unknownType) {
         return defaultValue;
     }
 }

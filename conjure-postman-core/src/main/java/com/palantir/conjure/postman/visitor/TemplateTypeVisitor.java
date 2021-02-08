@@ -22,7 +22,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.google.common.collect.Lists;
 import com.palantir.conjure.spec.AliasDefinition;
 import com.palantir.conjure.spec.EnumDefinition;
 import com.palantir.conjure.spec.EnumValueDefinition;
@@ -53,16 +52,17 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
             .enable(SerializationFeature.INDENT_OUTPUT);
 
     private final Map<TypeName, TypeDefinition> types;
-    private LinkedList<TypeName> seenTypeStack;
+    private final LinkedList<TypeName> seenTypeStack;
 
     public TemplateTypeVisitor(List<TypeDefinition> types) {
         this(types.stream()
                 .collect(Collectors.toMap(type -> type.accept(TypeDefinitionVisitor.TYPE_NAME), Function.identity())));
     }
 
+    @SuppressWarnings("JdkObsolete")
     private TemplateTypeVisitor(Map<TypeName, TypeDefinition> types) {
         this.types = types;
-        this.seenTypeStack = Lists.newLinkedList();
+        this.seenTypeStack = new LinkedList<>();
     }
 
     public static ObjectMapper getObjectMapper() {
@@ -169,7 +169,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
             }
 
             @Override
-            public JsonNode visitUnknown(String unknownType) {
+            public JsonNode visitUnknown(String _unknownType) {
                 return new TextNode("{{UNKNOWN}}");
             }
         });
@@ -181,7 +181,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
     }
 
     @Override
-    public JsonNode visitUnknown(String unknownType) {
+    public JsonNode visitUnknown(String _unknownType) {
         return new TextNode("{{UNKNOWN}}");
     }
 }

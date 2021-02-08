@@ -100,7 +100,7 @@ public final class TypeNameFormatterVisitor implements Type.Visitor<String> {
             }
 
             @Override
-            public String visitUnknown(String unknownType) {
+            public String visitUnknown(String _unknownType) {
                 return "UNKNOWN";
             }
         });
@@ -112,7 +112,7 @@ public final class TypeNameFormatterVisitor implements Type.Visitor<String> {
     }
 
     @Override
-    public String visitUnknown(String unknownType) {
+    public String visitUnknown(String _unknownType) {
         return "UNKNOWN";
     }
 }
