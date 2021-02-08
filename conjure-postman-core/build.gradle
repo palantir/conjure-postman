@@ -28,4 +28,5 @@ dependencies {
 
     annotationProcessor 'org.immutables:value'
     compileOnly 'org.immutables:value::annotations'
+    testCompileOnly 'org.immutables:value::annotations'
 }
