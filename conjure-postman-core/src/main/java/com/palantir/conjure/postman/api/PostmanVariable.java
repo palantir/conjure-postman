@@ -51,7 +51,10 @@ public interface PostmanVariable {
     Object value();
 
     enum Type {
-        ANY, BOOLEAN, NUMBER, STRING;
+        ANY,
+        BOOLEAN,
+        NUMBER,
+        STRING;
 
         @JsonValue
         public String asString() {

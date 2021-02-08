@@ -39,5 +39,4 @@ public interface PostmanEnvironment {
     }
 
     class Builder extends ImmutablePostmanEnvironment.Builder {}
-
 }

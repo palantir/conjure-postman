@@ -39,5 +39,4 @@ public interface PostmanFolder extends PostmanItem {
     }
 
     class Builder extends ImmutablePostmanFolder.Builder {}
-
 }

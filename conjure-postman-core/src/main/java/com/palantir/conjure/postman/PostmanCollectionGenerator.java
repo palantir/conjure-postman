@@ -45,7 +45,8 @@ public final class PostmanCollectionGenerator {
 
         String productDescription = String.format("# %s %s", config.productName(), config.productVersion());
         if (config.productDescription().isPresent()) {
-            productDescription = productDescription.concat(String.format("\n\n%s", config.productDescription().get()));
+            productDescription = productDescription.concat(
+                    String.format("\n\n%s", config.productDescription().get()));
         }
 
         collection.info(PostmanInformation.builder()
@@ -70,26 +71,29 @@ public final class PostmanCollectionGenerator {
 
         String formattedApiBaseVariable = PostmanUrl.formatApiBase(config.productName());
         String formattedApiBaseName = formattedApiBaseVariable.replaceAll("[{}]", "");
-        config.apiPath().ifPresent(apiPath -> collection.addVariable(PostmanVariable.builder()
-                .key(formattedApiBaseName)
-                .name(formattedApiBaseName)
-                .value(apiPath)
-                .type(PostmanVariable.Type.STRING)
-                .build()));
+        config.apiPath()
+                .ifPresent(apiPath -> collection.addVariable(PostmanVariable.builder()
+                        .key(formattedApiBaseName)
+                        .name(formattedApiBaseName)
+                        .value(apiPath)
+                        .type(PostmanVariable.Type.STRING)
+                        .build()));
 
         List<TypeDefinition> allTypes = conjureDefinition.getTypes();
         PostmanRequestGenerator requestGenerator = new PostmanRequestGenerator();
-        collection.addAllItems(conjureDefinition.getServices().stream().map(service -> {
-            PostmanFolder.Builder folder = PostmanFolder.builder();
-            folder.name(service.getServiceName().getName());
-            folder.description(service.getDocs().map(Documentation::get));
-            folder.addAllItems(service.getEndpoints().stream()
-                    .map(endpoint -> requestGenerator.generateRequest(formattedApiBaseVariable, allTypes, endpoint))
-                    .collect(Collectors.toList()));
-            return folder.build();
-        }).collect(Collectors.toList()));
+        collection.addAllItems(conjureDefinition.getServices().stream()
+                .map(service -> {
+                    PostmanFolder.Builder folder = PostmanFolder.builder();
+                    folder.name(service.getServiceName().getName());
+                    folder.description(service.getDocs().map(Documentation::get));
+                    folder.addAllItems(service.getEndpoints().stream()
+                            .map(endpoint ->
+                                    requestGenerator.generateRequest(formattedApiBaseVariable, allTypes, endpoint))
+                            .collect(Collectors.toList()));
+                    return folder.build();
+                })
+                .collect(Collectors.toList()));
 
         return collection.build();
     }
-
 }

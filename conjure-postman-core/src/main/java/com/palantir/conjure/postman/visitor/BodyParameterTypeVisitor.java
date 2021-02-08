@@ -100,7 +100,8 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
     private static Optional<PostmanRequest.Body> rawBody(JsonNode content) {
         try {
             String serializedContent = TemplateTypeVisitor.getObjectMapper().writeValueAsString(content);
-            return Optional.of(PostmanRequest.RawBody.builder().raw(serializedContent).build());
+            return Optional.of(
+                    PostmanRequest.RawBody.builder().raw(serializedContent).build());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

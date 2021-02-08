@@ -30,6 +30,7 @@ public final class SortedListJsonSerializer extends JsonSerializer<List<PostmanI
     @Override
     public void serialize(List<PostmanItem> value, JsonGenerator gen, SerializerProvider _serializers)
             throws IOException {
-        gen.writeObject(value.stream().sorted(Comparator.comparing(PostmanItem::name)).collect(Collectors.toList()));
+        gen.writeObject(
+                value.stream().sorted(Comparator.comparing(PostmanItem::name)).collect(Collectors.toList()));
     }
 }

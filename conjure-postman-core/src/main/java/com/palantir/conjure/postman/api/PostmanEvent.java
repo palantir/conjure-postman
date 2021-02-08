@@ -35,7 +35,8 @@ public interface PostmanEvent {
     }
 
     enum Listen {
-        PREREQUEST, TEST;
+        PREREQUEST,
+        TEST;
 
         @JsonValue
         public String asString() {
@@ -103,9 +104,7 @@ public interface PostmanEvent {
     interface Script {
 
         Script NON_ERROR_STATUS = Script.of(
-                "pm.test(\"Request was successful\", function () {",
-                "    pm.response.to.not.be.error;",
-                "});");
+                "pm.test(\"Request was successful\", function () {", "    pm.response.to.not.be.error;", "});");
 
         Script RESPONSE_IS_JSON = Script.of(
                 "pm.test(\"Response is valid json\", function () {",
