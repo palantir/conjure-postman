@@ -35,11 +35,15 @@
   },
   "items" : [ {
     "description" : null,
+    "event" : [ ],
+    "variable" : [ ],
     "name" : "ImportService",
     "items" : [ {
+      "description" : "**Returns:** BackingFileSystem\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"baseUri\" : \"{{STRING}}\",\n  \"configuration\" : {\n    \"{{STRING}}\" : \"{{STRING}}\"\n  }\n}\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testEndpoint",
-      "description" : "**Returns:** BackingFileSystem\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"baseUri\" : \"{{STRING}}\",\n  \"configuration\" : {\n    \"{{STRING}}\" : \"{{STRING}}\"\n  }\n}\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : {
           "raw" : "{\n  \"string\" : \"{{STRING}}\"\n}",
@@ -55,25 +59,25 @@
         "method" : "POST",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/testEndpoint",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "testEndpoint" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "testEndpoint" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
-    } ],
-    "event" : [ ],
-    "variable" : [ ]
+      }
+    } ]
   }, {
     "description" : "A Markdown description of the service.\n",
+    "event" : [ ],
+    "variable" : [ ],
     "name" : "TestService",
     "items" : [ {
+      "description" : "**Returns:** Dataset\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "createDataset",
-      "description" : "**Returns:** Dataset\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : {
           "raw" : "{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"path\" : \"{{STRING}}\"\n}",
@@ -94,19 +98,19 @@
         "method" : "POST",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getBranches",
-      "description" : "**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
@@ -124,9 +128,9 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/branches",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branches" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branches" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : "A valid dataset resource identifier.\n"
@@ -137,13 +141,13 @@
             "disabled" : false
           } ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getBranchesDeprecated (Deprecated)",
-      "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "Gets all branches of this dataset.\n\n\n**Deprecation:** use getBranches instead\n\n**Returns:** Set<STRING>\n\n```json\n[ \"{{STRING}}\" ]\n```",
@@ -156,22 +160,22 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/branchesDeprecated",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branchesDeprecated" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branchesDeprecated" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : "A valid dataset resource identifier.\n"
           } ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** Optional<Dataset>\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getDataset",
-      "description" : "**Returns:** Optional<Dataset>\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** Optional<Dataset>\n\n```json\n{\n  \"fileSystemId\" : \"{{STRING}}\",\n  \"rid\" : \"{{ResourceIdentifier}}\"\n}\n```",
@@ -184,22 +188,22 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : null
           } ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>\n\n```json\n{\n  \"{{STRING}}\" : {\n    \"fileSystemId\" : \"{{STRING}}\",\n    \"baseUri\" : \"{{STRING}}\",\n    \"configuration\" : {\n      \"{{STRING}}\" : \"{{STRING}}\"\n    }\n  }\n}\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getFileSystems",
-      "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>\n\n```json\n{\n  \"{{STRING}}\" : {\n    \"fileSystemId\" : \"{{STRING}}\",\n    \"baseUri\" : \"{{STRING}}\",\n    \"configuration\" : {\n      \"{{STRING}}\" : \"{{STRING}}\"\n    }\n  }\n}\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "Returns a mapping from file system id to backing file system configuration.\n\n\n**Returns:** Map<STRING, BackingFileSystem>\n\n```json\n{\n  \"{{STRING}}\" : {\n    \"fileSystemId\" : \"{{STRING}}\",\n    \"baseUri\" : \"{{STRING}}\",\n    \"configuration\" : {\n      \"{{STRING}}\" : \"{{STRING}}\"\n    }\n  }\n}\n```",
@@ -212,19 +216,19 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/fileSystems",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "fileSystems" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "fileSystems" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** BINARY\n\n```json\n\"{{BINARY}}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "getRawData",
-      "description" : "**Returns:** BINARY\n\n```json\n\"{{BINARY}}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** BINARY\n\n```json\n\"{{BINARY}}\"\n```",
@@ -237,22 +241,22 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/raw",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "raw" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "raw" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : null
           } ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{ Optional<BINARY> }}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "maybeGetRawData",
-      "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{ Optional<BINARY> }}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** Optional<BINARY>\n\n```json\n\"{{ Optional<BINARY> }}\"\n```",
@@ -265,22 +269,22 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/raw-maybe",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "raw-maybe" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "raw-maybe" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : null
           } ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "resolveBranch",
-      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
@@ -293,9 +297,9 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/branches/:branch:.+/resolve",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branches", ":branch:.+", "resolve" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "branches", ":branch:.+", "resolve" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : null
@@ -305,13 +309,13 @@
           } ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** BOOLEAN\n\n```json\n\"{{BOOLEAN}}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testBoolean",
-      "description" : "**Returns:** BOOLEAN\n\n```json\n\"{{BOOLEAN}}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** BOOLEAN\n\n```json\n\"{{BOOLEAN}}\"\n```",
@@ -324,19 +328,19 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/boolean",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "boolean" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "boolean" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** DOUBLE\n\n```json\n\"{{DOUBLE}}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testDouble",
-      "description" : "**Returns:** DOUBLE\n\n```json\n\"{{DOUBLE}}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** DOUBLE\n\n```json\n\"{{DOUBLE}}\"\n```",
@@ -349,19 +353,19 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/double",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "double" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "double" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testInteger",
-      "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
@@ -374,19 +378,19 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/integer",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "integer" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "integer" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testParam",
-      "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** Optional<STRING>\n\n```json\n\"{{ Optional<STRING> }}\"\n```",
@@ -399,22 +403,22 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/:datasetRid/testParam",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "testParam" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", ":datasetRid", "testParam" ],
           "variable" : [ {
             "key" : "datasetRid",
             "description" : null
           } ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "testQueryParams",
-      "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : null,
         "description" : "**Returns:** INTEGER\n\n```json\n\"{{INTEGER}}\"\n```",
@@ -427,9 +431,9 @@
         "method" : "GET",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/test-query-params",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "test-query-params" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "test-query-params" ],
           "variable" : [ ],
           "query" : [ {
             "key" : "something",
@@ -441,13 +445,13 @@
             "disabled" : false
           } ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
+      }
     }, {
+      "description" : null,
       "id" : "00000000-0000-0000-0000-000000000000",
       "name" : "uploadRawData",
-      "description" : null,
+      "event" : [ ],
+      "variable" : [ ],
       "request" : {
         "body" : {
           "mode" : "file"
@@ -462,18 +466,14 @@
         "method" : "POST",
         "url" : {
           "raw" : "{{HOSTNAME}}:{{PORT}}/{{TEST_PRODUCT_API_BASE}}/catalog/datasets/upload-raw",
-          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", "upload-raw" ],
           "host" : "{{HOSTNAME}}",
           "port" : "{{PORT}}",
+          "path" : [ "{{TEST_PRODUCT_API_BASE}}", "catalog", "datasets", "upload-raw" ],
           "variable" : [ ],
           "query" : [ ]
         }
-      },
-      "event" : [ ],
-      "variable" : [ ]
-    } ],
-    "event" : [ ],
-    "variable" : [ ]
+      }
+    } ]
   } ],
   "variable" : [ {
     "description" : null,
