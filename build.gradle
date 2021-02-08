@@ -57,11 +57,6 @@ allprojects {
 
     apply plugin: 'com.palantir.configuration-resolver'
 
-//    dependencyRecommendations {
-//        strategy OverrideTransitives
-//        propertiesFile file: project.rootProject.file('versions.props')
-//    }
-
     configurations.all {
         resolutionStrategy {
             failOnVersionConflict()
@@ -92,7 +87,3 @@ subprojects {
         systemProperty 'recreate', System.getProperty('recreate', 'false')
     }
 }
-
-//dependencies {
-//    baseline 'com.palantir.baseline:gradle-baseline-java-config@zip'
-//}
