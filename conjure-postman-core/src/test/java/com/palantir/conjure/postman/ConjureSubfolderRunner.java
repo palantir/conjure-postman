@@ -147,9 +147,8 @@ public final class ConjureSubfolderRunner extends ParentRunner<Path> {
             private final ExecutorService executor = Executors.newCachedThreadPool();
 
             @Override
-            @SuppressWarnings("FutureReturnValueIgnored")
             public void schedule(Runnable childStatement) {
-                executor.submit(childStatement);
+                executor.execute(childStatement);
             }
 
             @Override
