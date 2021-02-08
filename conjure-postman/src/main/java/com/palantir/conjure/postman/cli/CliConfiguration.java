@@ -52,9 +52,7 @@ public abstract class CliConfiguration {
     }
 
     static CliConfiguration of(String target, String outputDirectory, Option[] options) {
-        Builder builder = new Builder()
-                .target(new File(target))
-                .outputDirectory(new File(outputDirectory));
+        Builder builder = new Builder().target(new File(target)).outputDirectory(new File(outputDirectory));
         for (Option option : options) {
             switch (option.getLongOpt()) {
                 case PRODUCT_NAME:

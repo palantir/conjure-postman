@@ -48,8 +48,7 @@ public final class ConjurePostmanCli {
 
     public static void main(String[] args) {
         CliConfiguration cliConfig = resolveCliConfiguration(args);
-        generate(cliConfig.target(), cliConfig.outputDirectory(),
-                resolveGeneratorConfiguration(cliConfig));
+        generate(cliConfig.target(), cliConfig.outputDirectory(), resolveGeneratorConfiguration(cliConfig));
     }
 
     static CliConfiguration resolveCliConfiguration(String[] args) {
@@ -57,22 +56,30 @@ public final class ConjurePostmanCli {
         HelpFormatter hf = new HelpFormatter();
 
         Options options = new Options();
-        options.addOption(Option.builder().hasArg()
+        options.addOption(Option.builder()
+                .hasArg()
                 .desc("product name")
                 .longOpt(CliConfiguration.PRODUCT_NAME)
                 .required()
-                .argName("name").build());
-        options.addOption(Option.builder().hasArg()
+                .argName("name")
+                .build());
+        options.addOption(Option.builder()
+                .hasArg()
                 .desc("semantic version of generated code")
                 .longOpt(CliConfiguration.PRODUCT_VERSION)
                 .required()
-                .argName("version").build());
-        options.addOption(Option.builder().hasArg()
+                .argName("version")
+                .build());
+        options.addOption(Option.builder()
+                .hasArg()
                 .longOpt(CliConfiguration.PRODUCT_DESCRIPTION)
-                .argName("description").build());
-        options.addOption(Option.builder().hasArg()
+                .argName("description")
+                .build());
+        options.addOption(Option.builder()
+                .hasArg()
                 .longOpt(CliConfiguration.API_PATH)
-                .argName("apiPath").build());
+                .argName("apiPath")
+                .build());
 
         try {
             CommandLine cmd = parser.parse(options, args, false);
@@ -110,5 +117,4 @@ public final class ConjurePostmanCli {
             throw new RuntimeException(String.format("Error parsing definition: %s", e.toString()));
         }
     }
-
 }
