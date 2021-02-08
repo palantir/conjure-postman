@@ -18,7 +18,6 @@ package com.palantir.conjure.postman;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.google.common.net.HttpHeaders;
 import com.palantir.conjure.postman.api.PostmanRequest;
 import com.palantir.conjure.postman.api.PostmanUrl;

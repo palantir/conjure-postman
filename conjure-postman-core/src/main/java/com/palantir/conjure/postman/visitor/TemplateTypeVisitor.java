@@ -59,7 +59,6 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
                 .collect(Collectors.toMap(type -> type.accept(TypeDefinitionVisitor.TYPE_NAME), Function.identity())));
     }
 
-    @SuppressWarnings("JdkObsolete")
     private TemplateTypeVisitor(Map<TypeName, TypeDefinition> types) {
         this.types = types;
         this.seenTypeStack = new LinkedList<>();
