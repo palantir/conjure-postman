@@ -39,7 +39,7 @@ import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.spec.TypeName;
 import com.palantir.conjure.spec.UnionDefinition;
 import com.palantir.conjure.visitor.TypeDefinitionVisitor;
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -52,7 +52,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
             .enable(SerializationFeature.INDENT_OUTPUT);
 
     private final Map<TypeName, TypeDefinition> types;
-    private final LinkedList<TypeName> seenTypeStack;
+    private final ArrayDeque<TypeName> seenTypeStack;
 
     public TemplateTypeVisitor(List<TypeDefinition> types) {
         this(types.stream()
@@ -61,7 +61,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
 
     private TemplateTypeVisitor(Map<TypeName, TypeDefinition> types) {
         this.types = types;
-        this.seenTypeStack = new LinkedList<>();
+        this.seenTypeStack = new ArrayDeque<>();
     }
 
     public static ObjectMapper getObjectMapper() {
