@@ -37,14 +37,12 @@ import org.junit.runner.RunWith;
 @RunWith(ConjureSubfolderRunner.class)
 public final class ConjurePostmanGeneratorTest {
 
-    private final PostmanCollectionGenerator generator = new PostmanCollectionGenerator(
-            GeneratorConfiguration.builder()
-                .productName("Test Product")
-                .productVersion("0.0.0")
-                .productDescription("This is a testing product.")
-                .apiPath("service-endpoint/api")
-                .build()
-    );
+    private final PostmanCollectionGenerator generator = new PostmanCollectionGenerator(GeneratorConfiguration.builder()
+            .productName("Test Product")
+            .productVersion("0.0.0")
+            .productDescription("This is a testing product.")
+            .apiPath("service-endpoint/api")
+            .build());
     private final InMemoryPostmanCollectionFileWriter writer = new InMemoryPostmanCollectionFileWriter();
 
     @ConjureSubfolderRunner.Test
@@ -68,7 +66,8 @@ public final class ConjurePostmanGeneratorTest {
                     continue;
                 }
                 String expectedContent = Strings.join(Files.readAllLines(path)).with("\n");
-                assertThat(writer.getCollections().get(expected.relativize(path))).isEqualTo(expectedContent);
+                assertThat(writer.getCollections().get(expected.relativize(path)))
+                        .isEqualTo(expectedContent);
                 generatedButNotExpected.remove(expected.relativize(path));
                 count += 1;
             }
@@ -77,13 +76,13 @@ public final class ConjurePostmanGeneratorTest {
         System.out.println(count + " files checked");
     }
 
-
     private void maybeResetExpectedDirectory(Path expected, ConjureDefinition definition) throws IOException {
         if (Boolean.valueOf(System.getProperty("recreate", "false"))
                 || !expected.toFile().isDirectory()) {
             Files.createDirectories(expected);
             try (Stream<Path> walk = Files.walk(expected)) {
-                walk.filter(path -> path.toFile().isFile()).forEach(path -> path.toFile().delete());
+                walk.filter(path -> path.toFile().isFile())
+                        .forEach(path -> path.toFile().delete());
             }
             try (Stream<Path> walk = Files.walk(expected)) {
                 walk.forEach(path -> path.toFile().delete());
@@ -97,8 +96,7 @@ public final class ConjurePostmanGeneratorTest {
     private ConjureDefinition getInputDefinitions(Path folder) throws IOException {
         Files.createDirectories(folder);
         try (Stream<Path> walk = Files.walk(folder)) {
-            List<File> files = walk
-                    .map(Path::toFile)
+            List<File> files = walk.map(Path::toFile)
                     .filter(file -> file.toString().endsWith(".yml"))
                     .collect(Collectors.toList());
 

@@ -70,7 +70,9 @@ public final class TypeNameFormatterVisitor implements Type.Visitor<String> {
 
     @Override
     public String visitMap(MapType value) {
-        return String.format("Map<%s, %s>", value.getKeyType().accept(this), value.getValueType().accept(this));
+        return String.format(
+                "Map<%s, %s>",
+                value.getKeyType().accept(this), value.getValueType().accept(this));
     }
 
     @Override
@@ -81,7 +83,9 @@ public final class TypeNameFormatterVisitor implements Type.Visitor<String> {
 
             @Override
             public String visitAlias(AliasDefinition value) {
-                return String.format("%s(%s)", value.getTypeName().getName(), value.getAlias().accept(visitor));
+                return String.format(
+                        "%s(%s)",
+                        value.getTypeName().getName(), value.getAlias().accept(visitor));
             }
 
             @Override
@@ -100,7 +104,7 @@ public final class TypeNameFormatterVisitor implements Type.Visitor<String> {
             }
 
             @Override
-            public String visitUnknown(String unknownType) {
+            public String visitUnknown(String _unknownType) {
                 return "UNKNOWN";
             }
         });
@@ -112,7 +116,7 @@ public final class TypeNameFormatterVisitor implements Type.Visitor<String> {
     }
 
     @Override
-    public String visitUnknown(String unknownType) {
+    public String visitUnknown(String _unknownType) {
         return "UNKNOWN";
     }
 }

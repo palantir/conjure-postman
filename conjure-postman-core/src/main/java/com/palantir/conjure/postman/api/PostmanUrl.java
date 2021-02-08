@@ -76,7 +76,6 @@ public interface PostmanUrl {
         }
 
         class Builder extends ImmutableVariable.Builder {}
-
     }
 
     @Value.Immutable
@@ -104,7 +103,6 @@ public interface PostmanUrl {
         }
 
         class Builder extends ImmutableQueryParam.Builder {}
-
     }
 
     static Builder builder() {
@@ -112,5 +110,4 @@ public interface PostmanUrl {
     }
 
     class Builder extends ImmutablePostmanUrl.Builder {}
-
 }

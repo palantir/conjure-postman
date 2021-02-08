@@ -45,7 +45,7 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
     }
 
     @Override
-    public Optional<PostmanRequest.Body> visitBody(BodyParameterType value) {
+    public Optional<PostmanRequest.Body> visitBody(BodyParameterType _value) {
         TemplateTypeVisitor visitor = new TemplateTypeVisitor(types);
         Type type = argumentDefinition.getType();
 
@@ -91,7 +91,7 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
             }
 
             @Override
-            public Optional<PostmanRequest.Body> visitUnknown(String unknownType) {
+            public Optional<PostmanRequest.Body> visitUnknown(String _unknownType) {
                 return Optional.empty();
             }
         });
@@ -100,7 +100,8 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
     private static Optional<PostmanRequest.Body> rawBody(JsonNode content) {
         try {
             String serializedContent = TemplateTypeVisitor.getObjectMapper().writeValueAsString(content);
-            return Optional.of(PostmanRequest.RawBody.builder().raw(serializedContent).build());
+            return Optional.of(
+                    PostmanRequest.RawBody.builder().raw(serializedContent).build());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

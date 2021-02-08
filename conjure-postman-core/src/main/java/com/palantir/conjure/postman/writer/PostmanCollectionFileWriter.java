@@ -25,7 +25,8 @@ public interface PostmanCollectionFileWriter {
     void write(PostmanCollection collection);
 
     static Path getPath(PostmanCollection collection) {
-        return Paths.get(String.format("%s.postman_collection.json",
+        return Paths.get(String.format(
+                "%s.postman_collection.json",
                 collection.info().name().replaceAll(" ", "-").toLowerCase()));
     }
 }

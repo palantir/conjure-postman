@@ -47,7 +47,10 @@ public interface PostmanRequest extends PostmanItem {
     interface Body {
 
         enum Mode {
-            RAW, URLENCODED, FORMDATA, FILE;
+            RAW,
+            URLENCODED,
+            FORMDATA,
+            FILE;
 
             @JsonValue
             public String asString() {
@@ -138,7 +141,10 @@ public interface PostmanRequest extends PostmanItem {
     interface Request {
 
         enum Method {
-            DELETE, GET, POST, PUT
+            DELETE,
+            GET,
+            POST,
+            PUT
         }
 
         @JsonProperty

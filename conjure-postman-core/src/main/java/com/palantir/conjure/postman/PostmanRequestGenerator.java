@@ -18,7 +18,6 @@ package com.palantir.conjure.postman;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.google.common.net.HttpHeaders;
 import com.palantir.conjure.postman.api.PostmanRequest;
 import com.palantir.conjure.postman.api.PostmanUrl;
@@ -32,6 +31,7 @@ import com.palantir.conjure.spec.HeaderParameterType;
 import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.visitor.ParameterTypeVisitor;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -47,9 +47,7 @@ public final class PostmanRequestGenerator {
     PostmanRequestGenerator() {}
 
     public PostmanRequest generateRequest(
-            String apiBaseVariable,
-            List<TypeDefinition> types,
-            EndpointDefinition endpointDefinition) {
+            String apiBaseVariable, List<TypeDefinition> types, EndpointDefinition endpointDefinition) {
 
         PostmanRequest.Request request = PostmanRequest.Request.builder()
                 .url(getUrl(apiBaseVariable, endpointDefinition))
@@ -69,21 +67,22 @@ public final class PostmanRequestGenerator {
     private static String getName(EndpointDefinition endpointDefinition) {
         StringBuilder name = new StringBuilder();
         name.append(endpointDefinition.getEndpointName().get());
-        endpointDefinition.getDeprecated().ifPresent(documentation -> name.append(" (Deprecated)"));
+        endpointDefinition.getDeprecated().ifPresent(_documentation -> name.append(" (Deprecated)"));
         return name.toString();
     }
 
-    private static Optional<String> getDocs(EndpointDefinition endpointDefinition,
-            List<TypeDefinition> types) {
+    private static Optional<String> getDocs(EndpointDefinition endpointDefinition, List<TypeDefinition> types) {
 
-        List<String> docs = Lists.newArrayList();
+        List<String> docs = new ArrayList<>();
         endpointDefinition.getDocs().ifPresent(documentation -> docs.add(documentation.get()));
-        endpointDefinition.getDeprecated().ifPresent(documentation ->
-                docs.add(String.format("**Deprecation:** %s", documentation.get())));
+        endpointDefinition
+                .getDeprecated()
+                .ifPresent(documentation -> docs.add(String.format("**Deprecation:** %s", documentation.get())));
         endpointDefinition.getReturns().ifPresent(type -> {
             docs.add(String.format("**Returns:** %s", type.accept(new TypeNameFormatterVisitor(types))));
             try {
-                docs.add(String.format("```json\n%s\n```",
+                docs.add(String.format(
+                        "```json\n%s\n```",
                         TemplateTypeVisitor.getObjectMapper()
                                 .writeValueAsString(type.accept(new TemplateTypeVisitor(types)))));
             } catch (JsonProcessingException e) {
@@ -95,7 +94,8 @@ public final class PostmanRequestGenerator {
     }
 
     private static PostmanRequest.Request.Method getMethod(EndpointDefinition endpointDefinition) {
-        return PostmanRequest.Request.Method.valueOf(endpointDefinition.getHttpMethod().toString());
+        return PostmanRequest.Request.Method.valueOf(
+                endpointDefinition.getHttpMethod().toString());
     }
 
     /**
@@ -103,7 +103,9 @@ public final class PostmanRequestGenerator {
      * Path parameters are converted to Postman variables.
      */
     private static String getPath(String apiBaseVariable, EndpointDefinition endpointDefinition) {
-        String path = Paths.get(apiBaseVariable).resolve(endpointDefinition.getHttpPath().get()).toString();
+        String path = Paths.get(apiBaseVariable)
+                .resolve(endpointDefinition.getHttpPath().get())
+                .toString();
         return path.replaceAll("\\{", ":").replaceAll("}", "");
     }
 
@@ -113,12 +115,10 @@ public final class PostmanRequestGenerator {
      */
     private static PostmanUrl getUrl(String apiBaseVariable, EndpointDefinition endpointDefinition) {
         String path = getPath(apiBaseVariable, endpointDefinition);
-        String raw = String.format("%s:%s/%s%s",
-                PostmanUrl.HOSTNAME_VARIABLE, PostmanUrl.PORT_VARIABLE, apiBaseVariable, path);
+        String raw = String.format(
+                "%s:%s/%s%s", PostmanUrl.HOSTNAME_VARIABLE, PostmanUrl.PORT_VARIABLE, apiBaseVariable, path);
 
-
-        PostmanUrl.Builder url = PostmanUrl.builder()
-                .raw(raw);
+        PostmanUrl.Builder url = PostmanUrl.builder().raw(raw);
 
         url.addAllPathParam(endpointDefinition.getArgs().stream()
                 .filter(arg -> arg.getParamType().accept(ParameterTypeVisitor.IS_PATH))
@@ -144,18 +144,19 @@ public final class PostmanRequestGenerator {
      */
     private static List<PostmanRequest.Header> getHeaders(EndpointDefinition endpointDefinition) {
         Stream<PostmanRequest.Header> endpointHeaders = endpointDefinition.getArgs().stream()
-                .map(argumentDefinition -> argumentDefinition.getParamType()
+                .map(argumentDefinition -> argumentDefinition
+                        .getParamType()
                         .accept(new DefaultParameterTypeVisitor<Optional<PostmanRequest.Header>>(Optional.empty()) {
                             @Override
                             public Optional<PostmanRequest.Header> visitHeader(HeaderParameterType value) {
                                 PostmanRequest.Header header = PostmanRequest.Header.builder()
                                         .key(value.getParamId().get())
-                                        .description(argumentDefinition.getDocs().map(Documentation::get))
+                                        .description(
+                                                argumentDefinition.getDocs().map(Documentation::get))
                                         .build();
                                 return Optional.of(header);
                             }
-                        })
-                )
+                        }))
                 .filter(Optional::isPresent)
                 .map(Optional::get);
         return Stream.concat(DEFAULT_HEADERS.stream(), endpointHeaders)
@@ -164,10 +165,10 @@ public final class PostmanRequestGenerator {
     }
 
     private static Optional<PostmanRequest.Body> getBody(
-            EndpointDefinition endpointDefinition,
-            List<TypeDefinition> types) {
+            EndpointDefinition endpointDefinition, List<TypeDefinition> types) {
         return endpointDefinition.getArgs().stream()
-                .map(argumentDefinition -> argumentDefinition.getParamType()
+                .map(argumentDefinition -> argumentDefinition
+                        .getParamType()
                         .accept(new BodyParameterTypeVisitor(argumentDefinition, types)))
                 .filter(Optional::isPresent)
                 .map(Optional::get)

@@ -1,4 +1,4 @@
-rootProject.name = 'conjure-postman'
+rootProject.name = 'palantir-conjure-postman'
 
 include 'conjure-postman'
 include 'conjure-postman-core'

@@ -27,9 +27,8 @@ import java.nio.file.Path;
 
 public final class DefaultPostmanCollectionFileWriter implements PostmanCollectionFileWriter {
 
-    private static final ObjectMapper mapper = new ObjectMapper()
-                .registerModule(new Jdk8Module())
-                .enable(SerializationFeature.INDENT_OUTPUT);
+    private static final ObjectMapper mapper =
+            new ObjectMapper().registerModule(new Jdk8Module()).enable(SerializationFeature.INDENT_OUTPUT);
     private final Path basePath;
 
     public DefaultPostmanCollectionFileWriter(Path basePath) {
@@ -48,5 +47,4 @@ public final class DefaultPostmanCollectionFileWriter implements PostmanCollecti
             throw new RuntimeException(e);
         }
     }
-
 }

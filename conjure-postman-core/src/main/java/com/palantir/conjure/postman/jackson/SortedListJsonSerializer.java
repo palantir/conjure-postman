@@ -28,8 +28,9 @@ import java.util.stream.Collectors;
 public final class SortedListJsonSerializer extends JsonSerializer<List<PostmanItem>> {
 
     @Override
-    public void serialize(List<PostmanItem> value, JsonGenerator gen, SerializerProvider serializers)
+    public void serialize(List<PostmanItem> value, JsonGenerator gen, SerializerProvider _serializers)
             throws IOException {
-        gen.writeObject(value.stream().sorted(Comparator.comparing(PostmanItem::name)).collect(Collectors.toList()));
+        gen.writeObject(
+                value.stream().sorted(Comparator.comparing(PostmanItem::name)).collect(Collectors.toList()));
     }
 }

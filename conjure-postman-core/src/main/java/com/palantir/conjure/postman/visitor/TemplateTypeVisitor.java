@@ -22,7 +22,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.google.common.collect.Lists;
 import com.palantir.conjure.spec.AliasDefinition;
 import com.palantir.conjure.spec.EnumDefinition;
 import com.palantir.conjure.spec.EnumValueDefinition;
@@ -40,7 +39,7 @@ import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.spec.TypeName;
 import com.palantir.conjure.spec.UnionDefinition;
 import com.palantir.conjure.visitor.TypeDefinitionVisitor;
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -48,12 +47,11 @@ import java.util.stream.Collectors;
 
 public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper()
-            .registerModule(new Jdk8Module())
-            .enable(SerializationFeature.INDENT_OUTPUT);
+    private static final ObjectMapper objectMapper =
+            new ObjectMapper().registerModule(new Jdk8Module()).enable(SerializationFeature.INDENT_OUTPUT);
 
     private final Map<TypeName, TypeDefinition> types;
-    private LinkedList<TypeName> seenTypeStack;
+    private final ArrayDeque<TypeName> seenTypeStack;
 
     public TemplateTypeVisitor(List<TypeDefinition> types) {
         this(types.stream()
@@ -62,7 +60,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
 
     private TemplateTypeVisitor(Map<TypeName, TypeDefinition> types) {
         this.types = types;
-        this.seenTypeStack = Lists.newLinkedList();
+        this.seenTypeStack = new ArrayDeque<>();
     }
 
     public static ObjectMapper getObjectMapper() {
@@ -78,22 +76,20 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
     public JsonNode visitOptional(OptionalType value) {
         JsonNode wrapped = value.getItemType().accept(this);
         if (wrapped instanceof TextNode) {
-            return new TextNode(String.format("{{ Optional<%s> }}",
-                    wrapped.toString().replaceAll("[\"{}]", "")));
+            return new TextNode(
+                    String.format("{{ Optional<%s> }}", wrapped.toString().replaceAll("[\"{}]", "")));
         }
         return wrapped;
     }
 
     @Override
     public JsonNode visitList(ListType value) {
-        return objectMapper.createArrayNode()
-                .add(value.getItemType().accept(this));
+        return objectMapper.createArrayNode().add(value.getItemType().accept(this));
     }
 
     @Override
     public JsonNode visitSet(SetType value) {
-        return objectMapper.createArrayNode()
-                .add(value.getItemType().accept(this));
+        return objectMapper.createArrayNode().add(value.getItemType().accept(this));
     }
 
     @Override
@@ -103,8 +99,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
         if (keyTemplate instanceof TextNode) {
             key = keyTemplate.toString().replaceAll("[\"]", "");
         }
-        return objectMapper.createObjectNode()
-                .set(key, value.getValueType().accept(this));
+        return objectMapper.createObjectNode().set(key, value.getValueType().accept(this));
     }
 
     @Override
@@ -117,9 +112,9 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
             public JsonNode visitAlias(AliasDefinition value) {
                 JsonNode wrapped = value.getAlias().accept(visitor);
                 if (wrapped instanceof TextNode) {
-                    return new TextNode(String.format("{{ %s(%s) }}",
-                            value.getTypeName().getName(),
-                            wrapped.toString().replaceAll("[\"{}]", "")));
+                    return new TextNode(String.format(
+                            "{{ %s(%s) }}",
+                            value.getTypeName().getName(), wrapped.toString().replaceAll("[\"{}]", "")));
                 }
                 return wrapped;
             }
@@ -134,12 +129,15 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
             @Override
             public JsonNode visitObject(ObjectDefinition value) {
                 if (seenTypeStack.contains(value.getTypeName())) {
-                    return new TextNode(String.format("{{%s}}", value.getTypeName().getName()));
+                    return new TextNode(
+                            String.format("{{%s}}", value.getTypeName().getName()));
                 }
                 seenTypeStack.push(value.getTypeName());
                 ObjectNode node = objectMapper.createObjectNode();
-                value.getFields().forEach(fieldDefinition ->
-                        node.set(fieldDefinition.getFieldName().get(), fieldDefinition.getType().accept(visitor)));
+                value.getFields()
+                        .forEach(fieldDefinition -> node.set(
+                                fieldDefinition.getFieldName().get(),
+                                fieldDefinition.getType().accept(visitor)));
                 assert seenTypeStack.pop().equals(value.getTypeName());
                 return node;
             }
@@ -150,7 +148,8 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
                     return null;
                 } else {
                     if (seenTypeStack.contains(value.getTypeName())) {
-                        return new TextNode(String.format("{{%s}}", value.getTypeName().getName()));
+                        return new TextNode(
+                                String.format("{{%s}}", value.getTypeName().getName()));
                     }
                     seenTypeStack.push(value.getTypeName());
                     String unionTypes = value.getUnion().stream()
@@ -158,9 +157,11 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
                             .map(FieldName::get)
                             .collect(Collectors.joining("|"));
                     ObjectNode templates = objectMapper.createObjectNode();
-                    value.getUnion().forEach(field ->
-                            templates.set(field.getFieldName().get(), field.getType().accept(visitor)));
-                    JsonNode union = objectMapper.createObjectNode()
+                    value.getUnion()
+                            .forEach(field -> templates.set(
+                                    field.getFieldName().get(), field.getType().accept(visitor)));
+                    JsonNode union = objectMapper
+                            .createObjectNode()
                             .put("type", unionTypes)
                             .set("oneOf", templates);
                     assert seenTypeStack.pop().equals(value.getTypeName());
@@ -169,7 +170,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
             }
 
             @Override
-            public JsonNode visitUnknown(String unknownType) {
+            public JsonNode visitUnknown(String _unknownType) {
                 return new TextNode("{{UNKNOWN}}");
             }
         });
@@ -181,7 +182,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
     }
 
     @Override
-    public JsonNode visitUnknown(String unknownType) {
+    public JsonNode visitUnknown(String _unknownType) {
         return new TextNode("{{UNKNOWN}}");
     }
 }
