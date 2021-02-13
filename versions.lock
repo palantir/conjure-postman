@@ -44,7 +44,7 @@ org.yaml:snakeyaml:1.26 (1 constraints: 7117f927)
 
 [Test dependencies]
 com.palantir.safe-logging:preconditions-assertj:1.14.0 (1 constraints: 3805353b)
-junit:junit:4.13.1 (1 constraints: 3b05453b)
+junit:junit:4.13.2 (1 constraints: 3c05463b)
 org.assertj:assertj-core:3.19.0 (2 constraints: 9e19a6df)
 org.hamcrest:hamcrest:2.2 (1 constraints: 720b95d5)
 org.hamcrest:hamcrest-core:2.2 (2 constraints: 730adbbf)
