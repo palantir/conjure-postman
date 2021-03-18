@@ -183,9 +183,9 @@
             <property name="separated" value="true"/>
             <property name="sortStaticImportsAlphabetically" value="true"/>
         </module>
-
+        
         <module name="InnerAssignment"/> <!-- Java Coding Guidelines: Inner assignments: Not used -->
-        <!-- Java Style Guide: Nonempty blocks: K & R style -->
+         <!-- Java Style Guide: Nonempty blocks: K & R style -->
         <module name="MemberName"> <!-- Java Style Guide: Non-constant field names -->
             <property name="format" value="^[a-z][a-zA-Z0-9]+$"/>
             <message key="name.invalidPattern" value="Member name ''{0}'' must match pattern ''{1}''."/>
@@ -226,7 +226,7 @@
             <message key="name.invalidPattern" value="Package name ''{0}'' must match pattern ''{1}''."/>
         </module>
         <module name="ParameterAssignment"/> <!-- Java Coding Guidelines: Final variables and parameters -->
-        <!-- Java Style Guide: Horizontal whitespace -->
+         <!-- Java Style Guide: Horizontal whitespace -->
         <module name="RedundantImport"/> <!-- Java Style Guide: No unused imports -->
         <module name="RedundantModifier"/> <!-- Java Coding Guidelines: Avoid redundant modifiers -->
         <module name="RegexpSinglelineJava"> <!-- Java Coding Guidelines: Use appropriate assertion methods -->
@@ -342,7 +342,7 @@
         </module>
         <module name="RegexpSinglelineJava">
             <property name="format" value="\bCharset.defaultCharset\("/>
-            <property name="message" value="Use explicit charset (e.g. StandardCharsets.UTF-8) instead of default."/>
+            <property name="message" value="Use explicit charset (e.g. StandardCharsets.UTF_8) instead of default."/>
         </module>
         <module name="RegexpSinglelineJava">
             <property name="format" value="\bIOUtils\.toString\("/>
@@ -392,7 +392,7 @@
         <module name="UpperEll"/> <!-- Java Style Guide: Numeric Literals -->
         <module name="VisibilityModifier"/> <!-- Java Coding Guidelines: Minimize mutability -->
         <module name="WhitespaceAfter"/> <!-- Java Style Guide: Horizontal whitespace -->
-
+        
 
         <!-- Stricter checks begin: delete some or all of the following for faster prototyping, but please restore before pushing to production. -->
 
