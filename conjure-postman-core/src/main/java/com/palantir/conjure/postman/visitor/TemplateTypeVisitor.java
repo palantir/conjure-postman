@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.google.common.base.Preconditions;
 import com.palantir.conjure.spec.AliasDefinition;
 import com.palantir.conjure.spec.EnumDefinition;
 import com.palantir.conjure.spec.EnumValueDefinition;
@@ -102,6 +103,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
         return objectMapper.createObjectNode().set(key, value.getValueType().accept(this));
     }
 
+    @SuppressWarnings("PreferSafeLoggingPreconditions")
     @Override
     public JsonNode visitReference(TypeName value) {
         TypeDefinition definition = types.get(value);
@@ -138,7 +140,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
                         .forEach(fieldDefinition -> node.set(
                                 fieldDefinition.getFieldName().get(),
                                 fieldDefinition.getType().accept(visitor)));
-                assert seenTypeStack.pop().equals(value.getTypeName());
+                Preconditions.checkState(seenTypeStack.pop().equals(value.getTypeName()));
                 return node;
             }
 
@@ -164,7 +166,7 @@ public final class TemplateTypeVisitor implements Type.Visitor<JsonNode> {
                             .createObjectNode()
                             .put("type", unionTypes)
                             .set("oneOf", templates);
-                    assert seenTypeStack.pop().equals(value.getTypeName());
+                    Preconditions.checkState(seenTypeStack.pop().equals(value.getTypeName()));
                     return union;
                 }
             }
