@@ -19,13 +19,13 @@ apply plugin: 'com.palantir.external-publish-application-dist'
 mainClassName = 'com.palantir.conjure.postman.cli.ConjurePostmanCli'
 
 dependencies {
-    compile project(':conjure-postman-core')
-    compile 'commons-cli:commons-cli'
-    compile 'com.palantir.safe-logging:preconditions'
+    implementation project(':conjure-postman-core')
+    implementation 'commons-cli:commons-cli'
+    implementation 'com.palantir.safe-logging:preconditions'
 
-    testCompile 'junit:junit'
-    testCompile 'org.assertj:assertj-core'
-    testCompile 'com.palantir.safe-logging:preconditions-assertj'
+    testImplementation 'junit:junit'
+    testImplementation 'org.assertj:assertj-core'
+    testImplementation 'com.palantir.safe-logging:preconditions-assertj'
 
     annotationProcessor 'org.immutables:value'
     compileOnly 'org.immutables:value::annotations'
