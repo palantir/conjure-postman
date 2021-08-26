@@ -41,7 +41,7 @@ Requests require the following variables to be set:
 * `{{PORT}}` defaults to `443`
 * `{{%s_API_BASE}}`
     * `%s` will be the name of the service, uppercased and underscored.
-    * When `--apiBase` is provided it will be used as the value of the variable.
+    * When `--apiPath` is provided it will be used as the value of the variable.
 
 Overrides and non-default options should be set in an [Environment](https://www.getpostman.com/docs/v6/postman/environments_and_globals/manage_environments).
 
