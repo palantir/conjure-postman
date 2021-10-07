@@ -18,6 +18,6 @@ org.assertj:* = 3.21.0
 org.hamcrest:hamcrest-core = 2.2
 org.immutables:* = 2.8.8
 org.javassist:javassist = 3.22.0-GA
-org.mockito:mockito-core = 3.12.4
+org.mockito:mockito-core = 4.0.0
 org.slf4j:* = 1.7.32
 org.objenesis:objenesis = 3.2
