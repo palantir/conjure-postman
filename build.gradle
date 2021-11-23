@@ -34,6 +34,7 @@ apply plugin: 'com.palantir.external-publish'
 apply plugin: 'com.palantir.baseline'
 apply plugin: 'com.palantir.git-version'
 apply plugin: 'com.palantir.consistent-versions'
+apply plugin: 'com.palantir.baseline-java-versions'
 
 allprojects {
     apply plugin: 'com.palantir.java-format'
@@ -63,7 +64,6 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'org.inferred.processors'
 
-    sourceCompatibility = 1.8
 
     tasks.withType(JavaCompile) {
         options.compilerArgs += ['-Werror']
@@ -74,4 +74,8 @@ subprojects {
     tasks.withType(Test) {
         systemProperty 'recreate', System.getProperty('recreate', 'false')
     }
+}
+
+javaVersions {
+    libraryTarget = 11
 }
