@@ -7,7 +7,7 @@ com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.5 (2 constraints: 
 com.fasterxml.jackson.datatype:jackson-datatype-guava:2.12.5 (2 constraints: cf135477)
 com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.5 (2 constraints: 501df628)
 com.google.code.findbugs:jsr305:3.0.2 (10 constraints: 058e2d7b)
-com.google.errorprone:error_prone_annotations:2.10.0 (10 constraints: b68e7a75)
+com.google.errorprone:error_prone_annotations:2.11.0 (10 constraints: b78e0a77)
 com.google.guava:failureaccess:1.0.1 (2 constraints: e417667f)
 com.google.guava:guava:31.0.1-jre (6 constraints: c560cf64)
 com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava (2 constraints: 3633ed46)
