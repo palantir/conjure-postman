@@ -21,4 +21,4 @@ org.immutables:* = 2.8.8
 org.javassist:javassist = 3.22.0-GA
 org.mockito:mockito-core = 4.6.1
 org.slf4j:* = 1.7.36
-org.objenesis:objenesis = 3.2
+org.objenesis:objenesis = 3.3
