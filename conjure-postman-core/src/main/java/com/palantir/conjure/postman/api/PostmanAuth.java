@@ -46,7 +46,7 @@ public interface PostmanAuth {
                 .put("key", "token")
                 .put("value", AUTH_VARIABLE)
                 .put("type", "string")
-                .build()));
+                .buildOrThrow()));
     }
 
     static Builder builder() {
