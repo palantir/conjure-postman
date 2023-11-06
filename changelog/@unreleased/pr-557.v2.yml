@@ -1,0 +1,5 @@
+type: fix
+fix:
+  description: Fix broken link to Postman Collections docs in README
+  links:
+  - https://github.com/palantir/conjure-postman/pull/557

@@ -4,7 +4,7 @@
 
 conjure-postman
 ------------
-_Generate [Postman](https://www.getpostman.com/) [Collections](https://www.getpostman.com/docs/v6/postman/collections/intro_to_collections) for interacting with [Conjure](https://github.com/palantir/conjure) defined APIs._
+_Generate [Postman](https://www.getpostman.com/) [Collections](https://learning.postman.com/docs/collections/collections-overview/) for interacting with [Conjure](https://github.com/palantir/conjure) defined APIs._
 
 
 ## Usage
