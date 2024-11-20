@@ -56,6 +56,7 @@ public interface PostmanVariable {
         NUMBER,
         STRING;
 
+        @SuppressWarnings("for-rollout:StringCaseLocaleUsage")
         @JsonValue
         public String asString() {
             return name().toLowerCase();

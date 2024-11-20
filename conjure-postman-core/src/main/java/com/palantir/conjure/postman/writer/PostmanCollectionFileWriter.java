@@ -24,6 +24,7 @@ public interface PostmanCollectionFileWriter {
 
     void write(PostmanCollection collection);
 
+    @SuppressWarnings("for-rollout:StringCaseLocaleUsage")
     static Path getPath(PostmanCollection collection) {
         return Paths.get(String.format(
                 "%s.postman_collection.json",
