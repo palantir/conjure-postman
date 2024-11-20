@@ -32,6 +32,7 @@ public interface PostmanUrl {
     String PORT_VARIABLE = "{{PORT}}";
     String API_BASE_VARIABLE = "{{%s_API_BASE}}";
 
+    @SuppressWarnings("for-rollout:StringCaseLocaleUsage")
     static String formatApiBase(String productName) {
         return String.format(API_BASE_VARIABLE, productName.replace(" ", "_").toUpperCase());
     }

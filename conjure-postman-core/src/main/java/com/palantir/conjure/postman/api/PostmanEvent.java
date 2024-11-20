@@ -38,6 +38,7 @@ public interface PostmanEvent {
         PREREQUEST,
         TEST;
 
+        @SuppressWarnings("for-rollout:StringCaseLocaleUsage")
         @JsonValue
         public String asString() {
             return name().toLowerCase();
