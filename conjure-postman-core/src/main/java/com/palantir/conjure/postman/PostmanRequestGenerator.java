@@ -157,8 +157,7 @@ public final class PostmanRequestGenerator {
                                 return Optional.of(header);
                             }
                         }))
-                .filter(Optional::isPresent)
-                .map(Optional::get);
+                .mapMulti(Optional::ifPresent);
         return Stream.concat(DEFAULT_HEADERS.stream(), endpointHeaders)
                 .sorted(Comparator.comparing(PostmanRequest.Header::key))
                 .collect(Collectors.toList());
@@ -170,8 +169,7 @@ public final class PostmanRequestGenerator {
                 .map(argumentDefinition -> argumentDefinition
                         .getParamType()
                         .accept(new BodyParameterTypeVisitor(argumentDefinition, types)))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
+                .<PostmanRequest.Body>mapMulti(Optional::ifPresent)
                 .findFirst();
     }
 }
