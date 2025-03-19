@@ -52,7 +52,7 @@ public interface PostmanRequest extends PostmanItem {
             FORMDATA,
             FILE;
 
-            @SuppressWarnings("for-rollout:StringCaseLocaleUsage")
+            @SuppressWarnings({"for-rollout:RemoveRolloutSuppressions", "for-rollout:StringCaseLocaleUsage"})
             @JsonValue
             public String asString() {
                 return name().toLowerCase();
