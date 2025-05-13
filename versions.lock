@@ -48,7 +48,7 @@ org.jetbrains.kotlin:kotlin-stdlib-common:1.9.10 (2 constraints: 3f1b4b83)
 org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10 (1 constraints: e210ffd2)
 org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10 (2 constraints: 8118c1c5)
 org.jspecify:jspecify:1.0.0 (1 constraints: 130ae0b4)
-org.slf4j:slf4j-api:1.7.36 (4 constraints: 6e3c3060)
+org.slf4j:slf4j-api:2.0.17 (4 constraints: 6e3c3060)
 org.yaml:snakeyaml:2.3 (1 constraints: 3d178c10)
 
 [Test dependencies]
