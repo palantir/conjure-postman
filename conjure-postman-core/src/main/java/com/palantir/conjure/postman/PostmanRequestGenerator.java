@@ -30,6 +30,7 @@ import com.palantir.conjure.spec.EndpointDefinition;
 import com.palantir.conjure.spec.HeaderParameterType;
 import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.visitor.ParameterTypeVisitor;
+import java.io.UncheckedIOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -86,7 +87,7 @@ public final class PostmanRequestGenerator {
                         TemplateTypeVisitor.getObjectMapper()
                                 .writeValueAsString(type.accept(new TemplateTypeVisitor(types)))));
             } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
+                throw new UncheckedIOException(e);
             }
         });
 
