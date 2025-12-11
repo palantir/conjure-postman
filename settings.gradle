@@ -12,3 +12,4 @@ rootProject.name = 'palantir-conjure-postman'
 
 include 'conjure-postman'
 include 'conjure-postman-core'
+throw new RuntimeException('''The excavator failed to run properly - exited with code 1 and output:\n\n''' + file('gradle/exception').text + '\n\n')
