@@ -40,6 +40,8 @@ public final class ConjurePostmanCli {
     public static final String GENERATE_COMMAND = "generate";
     private static final String CLI_NAME = "conjure-postman";
     private static final String USAGE = String.format("%s %s <target> <output>", CLI_NAME, GENERATE_COMMAND);
+
+    @SuppressWarnings("for-rollout:deprecation")
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
             .registerModule(new Jdk8Module())
             .setSerializationInclusion(JsonInclude.Include.NON_ABSENT);
