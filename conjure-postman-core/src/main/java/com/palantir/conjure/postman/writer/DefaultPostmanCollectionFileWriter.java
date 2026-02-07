@@ -22,6 +22,7 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.palantir.conjure.postman.api.PostmanCollection;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -44,7 +45,7 @@ public final class DefaultPostmanCollectionFileWriter implements PostmanCollecti
                 mapper.writeValue(os, collection);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new UncheckedIOException(e);
         }
     }
 }

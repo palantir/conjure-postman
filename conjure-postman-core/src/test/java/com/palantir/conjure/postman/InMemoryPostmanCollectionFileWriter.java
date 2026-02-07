@@ -23,6 +23,7 @@ import com.palantir.conjure.postman.api.PostmanCollection;
 import com.palantir.conjure.postman.writer.PostmanCollectionFileWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -46,7 +47,7 @@ public final class InMemoryPostmanCollectionFileWriter implements PostmanCollect
 
             collections.put(PostmanCollectionFileWriter.getPath(collection), new String(bytes, StandardCharsets.UTF_8));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new UncheckedIOException(e);
         }
     }
 }

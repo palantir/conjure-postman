@@ -19,4 +19,5 @@ org.assertj:* = 3.27.3
 org.hamcrest:hamcrest-core = 3.0
 org.immutables:* = 2.10.1
 org.javassist:javassist = 3.22.0-GA
+org.junit.platform:* = 1.12.0
 org.slf4j:* = 2.0.17
