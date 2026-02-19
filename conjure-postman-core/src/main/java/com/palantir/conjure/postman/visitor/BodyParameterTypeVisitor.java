@@ -30,6 +30,7 @@ import com.palantir.conjure.spec.SetType;
 import com.palantir.conjure.spec.Type;
 import com.palantir.conjure.spec.TypeDefinition;
 import com.palantir.conjure.spec.TypeName;
+import java.io.UncheckedIOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,12 +53,10 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
         return type.accept(new Type.Visitor<Optional<PostmanRequest.Body>>() {
             @Override
             public Optional<PostmanRequest.Body> visitPrimitive(PrimitiveType value) {
-                switch (value.get()) {
-                    case BINARY:
-                        return Optional.of(PostmanRequest.FileBody.builder().build());
-                    default:
-                        return rawBody(visitor.visitPrimitive(value));
-                }
+                return switch (value.get()) {
+                    case BINARY -> Optional.of(PostmanRequest.FileBody.builder().build());
+                    default -> rawBody(visitor.visitPrimitive(value));
+                };
             }
 
             @Override
@@ -103,7 +102,7 @@ public final class BodyParameterTypeVisitor extends DefaultParameterTypeVisitor<
             return Optional.of(
                     PostmanRequest.RawBody.builder().raw(serializedContent).build());
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new UncheckedIOException(e);
         }
     }
 }
