@@ -2,15 +2,15 @@
 
 com.fasterxml.jackson.core:jackson-annotations:2.21 (6 constraints: 195ec326)
 
-com.fasterxml.jackson.core:jackson-core:2.21.0 (4 constraints: e6567f5d)
+com.fasterxml.jackson.core:jackson-core:2.21.1 (4 constraints: ea56fd5e)
 
-com.fasterxml.jackson.core:jackson-databind:2.21.0 (9 constraints: a69558f7)
+com.fasterxml.jackson.core:jackson-databind:2.21.1 (9 constraints: aa9542fc)
 
-com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.0 (1 constraints: 970eca57)
+com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.1 (1 constraints: 970eca57)
 
-com.fasterxml.jackson.datatype:jackson-datatype-guava:2.21.0 (1 constraints: 3705363b)
+com.fasterxml.jackson.datatype:jackson-datatype-guava:2.21.1 (1 constraints: 3805373b)
 
-com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.21.0 (1 constraints: 970eca57)
+com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.21.1 (1 constraints: 970eca57)
 
 com.google.code.findbugs:jsr305:3.0.2 (2 constraints: 3b13114b)
 
@@ -100,7 +100,7 @@ org.jspecify:jspecify:1.0.0 (1 constraints: 130ae0b4)
 
 org.slf4j:slf4j-api:2.0.17 (4 constraints: 6e3c3060)
 
-org.yaml:snakeyaml:2.4 (1 constraints: 3e178d10)
+org.yaml:snakeyaml:2.5 (1 constraints: 3f178e10)
 
 
 
