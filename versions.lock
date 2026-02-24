@@ -1,6 +1,6 @@
 # Run ./gradlew writeVersionsLocks to regenerate this file. Blank lines are to minimize merge conflicts.
 
-com.fasterxml.jackson.core:jackson-annotations:2.21 (6 constraints: 195ec326)
+com.fasterxml.jackson.core:jackson-annotations:2.21 (6 constraints: b75d1177)
 
 com.fasterxml.jackson.core:jackson-core:2.21.1 (4 constraints: ea56fd5e)
 
@@ -14,15 +14,15 @@ com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.21.1 (1 constraints: 970e
 
 com.google.code.findbugs:jsr305:3.0.2 (2 constraints: 3b13114b)
 
-com.google.errorprone:error_prone_annotations:2.36.0 (8 constraints: 046d5bbb)
+com.google.errorprone:error_prone_annotations:2.41.0 (8 constraints: 346c1d2e)
 
 com.google.guava:failureaccess:1.0.3 (1 constraints: 160ae3b4)
 
-com.google.guava:guava:33.4.8-jre (5 constraints: 3e54a63b)
+com.google.guava:guava:33.5.0-jre (5 constraints: a25478e3)
 
 com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava (1 constraints: bd17c918)
 
-com.google.j2objc:j2objc-annotations:3.0.0 (1 constraints: 150aeab4)
+com.google.j2objc:j2objc-annotations:3.1 (1 constraints: b809f1a0)
 
 com.palantir.conjure:conjure-api-objects:4.0.0 (2 constraints: ef213ba7)
 
@@ -36,17 +36,17 @@ com.palantir.remoting-api:errors:1.8.0 (1 constraints: f10f7d99)
 
 com.palantir.ri:resource-identifier:2.9.0 (2 constraints: f614adb7)
 
-com.palantir.safe-logging:logger:3.9.0 (1 constraints: d60d8437)
+com.palantir.safe-logging:logger:3.11.0 (1 constraints: d60d8437)
 
-com.palantir.safe-logging:logger-slf4j:3.9.0 (1 constraints: 070e6e42)
+com.palantir.safe-logging:logger-slf4j:3.11.0 (1 constraints: 300e8a50)
 
-com.palantir.safe-logging:logger-spi:3.9.0 (2 constraints: 1d1e0c7c)
+com.palantir.safe-logging:logger-spi:3.11.0 (2 constraints: 6f1e0ab0)
 
-com.palantir.safe-logging:preconditions:3.9.0 (5 constraints: 8049668b)
+com.palantir.safe-logging:preconditions:3.11.0 (5 constraints: db49ef06)
 
-com.palantir.safe-logging:safe-logging:3.9.0 (7 constraints: 5e73e963)
+com.palantir.safe-logging:safe-logging:3.11.0 (7 constraints: 34743840)
 
-com.palantir.syntactic-paths:syntactic-paths:0.9.0 (2 constraints: 9b137361)
+com.palantir.syntactic-paths:syntactic-paths:0.13.0 (2 constraints: c613a76d)
 
 com.palantir.tokens:auth-tokens:3.18.0 (1 constraints: ec0f7099)
 
@@ -106,13 +106,13 @@ org.yaml:snakeyaml:2.5 (1 constraints: 3f178e10)
 
 [Test dependencies]
 
-com.palantir.safe-logging:preconditions-assertj:3.9.0 (1 constraints: 0e051536)
+com.palantir.safe-logging:preconditions-assertj:3.11.0 (1 constraints: 0e051536)
 
 junit:junit:4.13.2 (1 constraints: 3c05463b)
 
-net.bytebuddy:byte-buddy:1.15.11 (1 constraints: 7f0bc9ea)
+net.bytebuddy:byte-buddy:1.17.7 (1 constraints: 560b56df)
 
-org.assertj:assertj-core:3.27.3 (2 constraints: a41920e0)
+org.assertj:assertj-core:3.27.6 (2 constraints: a71923e0)
 
 org.hamcrest:hamcrest:3.0 (1 constraints: 710b96d5)
 
