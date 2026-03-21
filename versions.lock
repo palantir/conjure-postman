@@ -112,7 +112,7 @@ junit:junit:4.13.2 (1 constraints: 3c05463b)
 
 net.bytebuddy:byte-buddy:1.18.3 (1 constraints: 530b55df)
 
-org.assertj:assertj-core:3.27.7 (2 constraints: a81924e0)
+org.assertj:assertj-core:3.27.7 (2 constraints: ac190ce1)
 
 org.hamcrest:hamcrest:3.0 (1 constraints: 710b96d5)
 
