@@ -36,19 +36,19 @@ com.palantir.remoting-api:errors:1.8.0 (1 constraints: f10f7d99)
 
 com.palantir.ri:resource-identifier:2.15.0 (2 constraints: 2315f1c4)
 
-com.palantir.safe-logging:logger:3.13.0 (1 constraints: 050e8645)
+com.palantir.safe-logging:logger:3.13.0 (1 constraints: 060e8945)
 
 com.palantir.safe-logging:logger-slf4j:3.13.0 (1 constraints: 320e9050)
 
 com.palantir.safe-logging:logger-spi:3.13.0 (2 constraints: 731e76b0)
 
-com.palantir.safe-logging:preconditions:3.13.0 (5 constraints: 654a04a7)
+com.palantir.safe-logging:preconditions:3.13.0 (5 constraints: 664a07a7)
 
 com.palantir.safe-logging:safe-logging:3.13.0 (7 constraints: 6a74d58c)
 
 com.palantir.syntactic-paths:syntactic-paths:0.15.0 (2 constraints: c813016e)
 
-com.palantir.tokens:auth-tokens:4.2.0 (1 constraints: ec0f7099)
+com.palantir.tokens:auth-tokens:4.3.0 (1 constraints: ec0f7099)
 
 com.squareup.okhttp3:okhttp:5.3.2 (1 constraints: 0c050f36)
 
