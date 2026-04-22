@@ -1,54 +1,56 @@
 # Run ./gradlew writeVersionsLocks to regenerate this file. Blank lines are to minimize merge conflicts.
 
-com.fasterxml.jackson.core:jackson-annotations:2.21 (6 constraints: f05c641e)
+com.fasterxml.jackson.core:jackson-annotations:2.21 (7 constraints: ae6c08da)
 
-com.fasterxml.jackson.core:jackson-core:2.21.1 (4 constraints: ea56fd5e)
+com.fasterxml.jackson.core:jackson-core:2.21.1 (5 constraints: 076746fe)
 
-com.fasterxml.jackson.core:jackson-databind:2.21.1 (9 constraints: a7953cfc)
+com.fasterxml.jackson.core:jackson-databind:2.21.1 (9 constraints: ab979667)
 
-com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.1 (1 constraints: 970eca57)
+com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.1 (1 constraints: c00e7b66)
 
 com.fasterxml.jackson.datatype:jackson-datatype-guava:2.21.1 (1 constraints: 3805373b)
 
-com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.21.1 (1 constraints: 970eca57)
+com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.21.1 (1 constraints: c00e7b66)
 
-com.google.code.findbugs:jsr305:3.0.2 (2 constraints: 3b13114b)
+com.google.code.findbugs:jsr305:3.0.2 (2 constraints: 9e14e59e)
 
-com.google.errorprone:error_prone_annotations:2.41.0 (8 constraints: 346c1d2e)
+com.google.errorprone:error_prone_annotations:2.43.0 (9 constraints: 877c09ee)
 
 com.google.guava:failureaccess:1.0.3 (1 constraints: 160ae3b4)
 
-com.google.guava:guava:33.5.0-jre (5 constraints: a25478e3)
+com.google.guava:guava:33.5.0-jre (6 constraints: 41682e2f)
 
 com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava (1 constraints: bd17c918)
 
 com.google.j2objc:j2objc-annotations:3.1 (1 constraints: b809f1a0)
 
-com.palantir.conjure:conjure-api-objects:4.0.0 (2 constraints: ef213ba7)
+com.palantir.conjure:conjure-api-objects:4.56.0 (2 constraints: 652215e5)
 
-com.palantir.conjure:conjure-core:4.0.0 (1 constraints: 0605ff35)
+com.palantir.conjure:conjure-core:4.56.0 (1 constraints: 41055d3b)
 
-com.palantir.conjure:conjure-generator-common:4.0.0 (1 constraints: 8e0ebb57)
+com.palantir.conjure:conjure-generator-common:4.56.0 (1 constraints: c90ea166)
 
-com.palantir.conjure.java:conjure-lib:0.2.4 (1 constraints: 3811a0d3)
+com.palantir.conjure.java:conjure-lib:8.75.0 (1 constraints: 761155e5)
 
-com.palantir.remoting-api:errors:1.8.0 (1 constraints: f10f7d99)
+com.palantir.conjure.java.api:errors:2.70.0 (1 constraints: 2110a2a9)
 
-com.palantir.ri:resource-identifier:2.15.0 (2 constraints: 2315f1c4)
+com.palantir.ri:resource-identifier:2.15.0 (2 constraints: 58155ada)
 
-com.palantir.safe-logging:logger:3.14.0 (1 constraints: 060e8945)
+com.palantir.safe-logging:logger:3.14.0 (2 constraints: 8c1c4cec)
 
 com.palantir.safe-logging:logger-slf4j:3.14.0 (1 constraints: 330e9350)
 
 com.palantir.safe-logging:logger-spi:3.14.0 (2 constraints: 751eacb0)
 
-com.palantir.safe-logging:preconditions:3.14.0 (5 constraints: 684a31a8)
+com.palantir.safe-logging:preconditions:3.14.0 (8 constraints: d478d10c)
 
-com.palantir.safe-logging:safe-logging:3.14.0 (7 constraints: 6e74f48e)
+com.palantir.safe-logging:safe-logging:3.14.0 (8 constraints: 2086a9af)
 
-com.palantir.syntactic-paths:syntactic-paths:0.15.0 (2 constraints: c813016e)
+com.palantir.syntactic-paths:syntactic-paths:0.15.0 (2 constraints: f613f181)
 
-com.palantir.tokens:auth-tokens:4.3.0 (1 constraints: ec0f7099)
+com.palantir.tokens:auth-tokens:4.3.0 (1 constraints: ee0f7a99)
+
+com.palantir.tritium:tritium-ids:0.125.0 (1 constraints: fb0f91a6)
 
 com.squareup.okhttp3:okhttp:5.3.2 (1 constraints: 0c050f36)
 
@@ -58,41 +60,31 @@ com.squareup.okio:okio-jvm:3.16.4 (1 constraints: 850a57c4)
 
 commons-cli:commons-cli:1.11.0 (1 constraints: 35052c3b)
 
-io.dropwizard.metrics:metrics-core:4.2.38 (2 constraints: d613ef6f)
+javax.annotation:javax.annotation-api:1.3.2 (1 constraints: f410f2c2)
 
-javax.annotation:javax.annotation-api:1.2 (1 constraints: 90103ea1)
+javax.inject:javax.inject:1 (1 constraints: f410fcc2)
 
-javax.inject:javax.inject:1 (4 constraints: 1a34ac35)
+javax.ws.rs:javax.ws.rs-api:2.1.1 (1 constraints: f410f2c2)
 
-javax.ws.rs:javax.ws.rs-api:2.0.1 (2 constraints: 211fb2b3)
+org.apache.commons:commons-lang3:3.20.0 (2 constraints: f513d781)
 
-org.apache.commons:commons-lang3:3.20.0 (1 constraints: 3705393b)
+org.eclipse.collections:eclipse-collections:13.0.0 (1 constraints: 1c1091a9)
 
-org.glassfish.hk2:hk2-api:2.5.0-b32 (2 constraints: 451f3a01)
+org.eclipse.collections:eclipse-collections-api:13.0.0 (2 constraints: fa22df26)
 
-org.glassfish.hk2:hk2-locator:2.5.0-b32 (1 constraints: e6114109)
+org.glassfish.hk2:osgi-resource-locator:1.0.3 (1 constraints: ef10e7c2)
 
-org.glassfish.hk2:hk2-utils:2.5.0-b32 (2 constraints: 0519152b)
+org.glassfish.jersey.core:jersey-common:2.34 (1 constraints: 650e3149)
 
-org.glassfish.hk2:osgi-resource-locator:1.0.1 (1 constraints: ed10e5c2)
+org.immutables:value:2.12.1 (2 constraints: 0015bec1)
 
-org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b32 (2 constraints: 0519152b)
-
-org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1 (1 constraints: 251120d4)
-
-org.glassfish.jersey.core:jersey-common:2.25.1 (1 constraints: c40e8766)
-
-org.immutables:value:2.12.1 (1 constraints: 3805363b)
-
-org.javassist:javassist:3.22.0-GA (2 constraints: 3c134b85)
-
-org.jetbrains:annotations:26.1.0 (2 constraints: 1320ad00)
+org.jetbrains:annotations:26.1.0 (4 constraints: 4841586c)
 
 org.jetbrains.kotlin:kotlin-stdlib:2.2.21 (2 constraints: 7718e7c4)
 
 org.jspecify:jspecify:1.0.0 (3 constraints: 3d277819)
 
-org.slf4j:slf4j-api:2.0.17 (4 constraints: 673ce35e)
+org.slf4j:slf4j-api:2.0.17 (3 constraints: 122d0c20)
 
 org.yaml:snakeyaml:2.5 (1 constraints: 3f178e10)
 
