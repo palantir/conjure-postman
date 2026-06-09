@@ -52,11 +52,11 @@ com.palantir.tokens:auth-tokens:4.5.0 (1 constraints: ef0f7d99)
 
 com.palantir.tritium:tritium-ids:0.126.0 (1 constraints: fc0f94a6)
 
-com.squareup.okhttp3:okhttp:5.3.2 (1 constraints: 0c050f36)
+com.squareup.okhttp3:okhttp:5.4.0 (1 constraints: 0b051036)
 
-com.squareup.okio:okio:3.16.4 (1 constraints: 880cce09)
+com.squareup.okio:okio:3.17.0 (1 constraints: 850ccd09)
 
-com.squareup.okio:okio-jvm:3.16.4 (1 constraints: 850a57c4)
+com.squareup.okio:okio-jvm:3.17.0 (1 constraints: 820a56c4)
 
 commons-cli:commons-cli:1.11.0 (1 constraints: 35052c3b)
 
@@ -80,7 +80,7 @@ org.immutables:value:2.12.2 (2 constraints: 0115edc1)
 
 org.jetbrains:annotations:26.1.0 (4 constraints: 4841586c)
 
-org.jetbrains.kotlin:kotlin-stdlib:2.2.21 (2 constraints: 7718e7c4)
+org.jetbrains.kotlin:kotlin-stdlib:2.1.21 (2 constraints: 7618bcc4)
 
 org.jspecify:jspecify:1.0.0 (3 constraints: 3d277819)
 
