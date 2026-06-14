@@ -4,11 +4,11 @@ com.fasterxml.jackson.core:jackson-annotations:2.21 (7 constraints: ae6c08da)
 
 com.fasterxml.jackson.core:jackson-core:2.21.4 (5 constraints: 13670305)
 
-com.fasterxml.jackson.core:jackson-databind:2.21.4 (9 constraints: b797ce71)
+com.fasterxml.jackson.core:jackson-databind:2.21.4 (9 constraints: ba97b776)
 
 com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.4 (1 constraints: c00e7b66)
 
-com.fasterxml.jackson.datatype:jackson-datatype-guava:2.21.4 (1 constraints: 3805373b)
+com.fasterxml.jackson.datatype:jackson-datatype-guava:2.21.4 (1 constraints: 3b053a3b)
 
 com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.21.4 (1 constraints: c00e7b66)
 
