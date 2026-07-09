@@ -36,15 +36,15 @@ com.palantir.conjure.java.api:errors:2.71.0 (1 constraints: 2210a5a9)
 
 com.palantir.ri:resource-identifier:2.19.0 (2 constraints: 5d1525db)
 
-com.palantir.safe-logging:logger:3.16.0 (2 constraints: 901cd6ec)
+com.palantir.safe-logging:logger:3.17.0 (2 constraints: 901cd6ec)
 
-com.palantir.safe-logging:logger-slf4j:3.16.0 (1 constraints: 350e9950)
+com.palantir.safe-logging:logger-slf4j:3.17.0 (1 constraints: 360e9c50)
 
-com.palantir.safe-logging:logger-spi:3.16.0 (2 constraints: 791e18b1)
+com.palantir.safe-logging:logger-spi:3.17.0 (2 constraints: 7b1e4eb1)
 
-com.palantir.safe-logging:preconditions:3.16.0 (8 constraints: e3781e16)
+com.palantir.safe-logging:preconditions:3.17.0 (8 constraints: e578f917)
 
-com.palantir.safe-logging:safe-logging:3.16.0 (8 constraints: 2f865cb9)
+com.palantir.safe-logging:safe-logging:3.17.0 (8 constraints: 33867bbb)
 
 com.palantir.syntactic-paths:syntactic-paths:0.18.0 (2 constraints: fa137e82)
 
@@ -92,7 +92,7 @@ org.yaml:snakeyaml:2.5 (1 constraints: 3f178e10)
 
 [Test dependencies]
 
-com.palantir.safe-logging:preconditions-assertj:3.16.0 (1 constraints: 3c05473b)
+com.palantir.safe-logging:preconditions-assertj:3.17.0 (1 constraints: 3d054a3b)
 
 junit:junit:4.13.2 (1 constraints: 3c05463b)
 
