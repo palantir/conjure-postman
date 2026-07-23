@@ -16,7 +16,7 @@
 
 apply plugin: 'com.palantir.external-publish-application-dist'
 
-mainClassName = 'com.palantir.conjure.postman.cli.ConjurePostmanCli'
+application.mainClass = 'com.palantir.conjure.postman.cli.ConjurePostmanCli'
 
 dependencies {
     implementation project(':conjure-postman-core')
