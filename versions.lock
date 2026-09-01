@@ -34,7 +34,7 @@ com.palantir.conjure.java:conjure-lib:8.77.0 (1 constraints: 78115be5)
 
 com.palantir.conjure.java.api:errors:2.71.0 (1 constraints: 2210a5a9)
 
-com.palantir.ri:resource-identifier:2.21.0 (2 constraints: 5615c8d9)
+com.palantir.ri:resource-identifier:2.22.0 (2 constraints: 5715fad9)
 
 com.palantir.safe-logging:logger:3.18.0 (2 constraints: 911c03ed)
 
@@ -42,9 +42,9 @@ com.palantir.safe-logging:logger-slf4j:3.18.0 (1 constraints: 370e9f50)
 
 com.palantir.safe-logging:logger-spi:3.18.0 (2 constraints: 7d1e84b1)
 
-com.palantir.safe-logging:preconditions:3.18.0 (8 constraints: eb78721b)
+com.palantir.safe-logging:preconditions:3.18.0 (8 constraints: ec78371c)
 
-com.palantir.safe-logging:safe-logging:3.18.0 (8 constraints: 3a869bbe)
+com.palantir.safe-logging:safe-logging:3.18.0 (8 constraints: 3b8696bf)
 
 com.palantir.syntactic-paths:syntactic-paths:0.20.0 (2 constraints: f3133d81)
 
