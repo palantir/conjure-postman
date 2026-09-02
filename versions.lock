@@ -36,19 +36,19 @@ com.palantir.conjure.java.api:errors:2.71.0 (1 constraints: 2210a5a9)
 
 com.palantir.ri:resource-identifier:2.22.0 (2 constraints: 5715fad9)
 
-com.palantir.safe-logging:logger:3.18.0 (2 constraints: 911c03ed)
+com.palantir.safe-logging:logger:3.18.0 (2 constraints: 921c30ed)
 
 com.palantir.safe-logging:logger-slf4j:3.18.0 (1 constraints: 370e9f50)
 
 com.palantir.safe-logging:logger-spi:3.18.0 (2 constraints: 7d1e84b1)
 
-com.palantir.safe-logging:preconditions:3.18.0 (8 constraints: ec78371c)
+com.palantir.safe-logging:preconditions:3.18.0 (8 constraints: ed78641c)
 
 com.palantir.safe-logging:safe-logging:3.18.0 (8 constraints: 3b8696bf)
 
 com.palantir.syntactic-paths:syntactic-paths:0.20.0 (2 constraints: f3133d81)
 
-com.palantir.tokens:auth-tokens:4.8.0 (1 constraints: ef0f7d99)
+com.palantir.tokens:auth-tokens:4.9.0 (1 constraints: ef0f7d99)
 
 com.palantir.tritium:tritium-ids:0.126.0 (1 constraints: fc0f94a6)
 
@@ -82,7 +82,7 @@ org.jetbrains:annotations:26.1.0 (4 constraints: 4841586c)
 
 org.jetbrains.kotlin:kotlin-stdlib:2.1.21 (2 constraints: 7618bcc4)
 
-org.jspecify:jspecify:1.0.0 (3 constraints: 3d277819)
+org.jspecify:jspecify:1.0.1 (3 constraints: 3e277919)
 
 org.slf4j:slf4j-api:2.0.17 (3 constraints: 122d0c20)
 
