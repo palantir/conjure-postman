@@ -55,20 +55,11 @@ public abstract class CliConfiguration {
         Builder builder = new Builder().target(new File(target)).outputDirectory(new File(outputDirectory));
         for (Option option : options) {
             switch (option.getLongOpt()) {
-                case PRODUCT_NAME:
-                    builder.productName(option.getValue());
-                    break;
-                case PRODUCT_VERSION:
-                    builder.productVersion(option.getValue());
-                    break;
-                case PRODUCT_DESCRIPTION:
-                    builder.productDescription(option.getValue());
-                    break;
-                case API_PATH:
-                    builder.apiPath(option.getValue());
-                    break;
-                default:
-                    break;
+                case PRODUCT_NAME -> builder.productName(option.getValue());
+                case PRODUCT_VERSION -> builder.productVersion(option.getValue());
+                case PRODUCT_DESCRIPTION -> builder.productDescription(option.getValue());
+                case API_PATH -> builder.apiPath(option.getValue());
+                default -> {}
             }
         }
 
