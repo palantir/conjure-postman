@@ -52,7 +52,7 @@ com.palantir.tokens:auth-tokens:4.12.0 (1 constraints: ef0f7d99)
 
 com.palantir.tritium:tritium-ids:0.126.0 (1 constraints: fc0f94a6)
 
-com.squareup.okhttp3:okhttp:5.5.0 (1 constraints: 0c051336)
+com.squareup.okhttp3:okhttp:5.5.1 (1 constraints: 0d051436)
 
 com.squareup.okio:okio:3.18.1 (1 constraints: 870cd109)
 
